@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>effect.ac</path>
+
+	
+<!-- ******************************************************************* -->
+<!-- Condensation                                                        -->
+<!-- ******************************************************************* -->
+
+	<!-- shock waves -->
+
+	<animation>
+      <type>select</type>
+      <object-name>ShockWave</object-name>
+      <condition>
+         <and>            
+               <less-than>
+                  <property>sim/multiplay/generic/float[18]</property>
+                  <value>1.05</value>
+               </less-than>
+               <greater-than>
+                  <property>sim/multiplay/generic/float[18]</property>
+                  <value>0.92</value>
+               </greater-than>              
+            <less-than>
+               <property>sim/multiplay/generic/float[6]</property>
+               <value>25000.0</value>
+            </less-than>
+         </and>
+      </condition>
+      </animation>
+     
+     <animation>
+	<type>scale</type>
+	<object-name>ShockWave</object-name>
+	    <property>sim/multiplay/generic/float[18]</property>
+	<x-min>1</x-min>
+	<y-min>0.05</y-min>
+	<z-min>0.05</z-min>
+	<x-factor>1.0</x-factor>
+	<y-factor>2</y-factor>
+	<z-factor>2</z-factor>
+      </animation>      
+
+
+</PropertyList>

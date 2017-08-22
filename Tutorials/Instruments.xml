@@ -1,0 +1,881 @@
+<PropertyList>
+  <name>Instruments</name>
+  <description>Get used to some Instruments:
+    
+    METAR Information
+    Trim Neutralisation Panel
+    The 3 Altimeters
+    Decision Hight Indicator
+    Flaps, Slats and Spoilers Indicators
+    Setting the magnetic variation in the Referenz Compass
+    The SKWAK, or Transponder
+    The ADF (ARK) Radios for NDB navigation
+    The Kurs-MPs, Radios for NAV or ILS navigation
+    HSI Horizontal Situation Indicator
+    Wing Sweep Indicator
+    Mach Indicator
+    Indicated Air Speed Indicators
+    Metric Speed Indicator for airspeed and groundspeed.
+    
+    more to come, stay tuned :)
+  </description>
+  
+  <init>
+    
+    <set>
+      <property>controls/gear/brake-parking</property>
+      <value>1</value>
+    </set>
+    <set>
+      <property>controls/flight/flaps</property>
+      <value>0.0</value>
+    </set>
+    <set>
+      <property>controls/flight/slats</property>
+      <value>0.0</value>
+    </set>
+    <set>
+      <property>controls/flight/spoilers</property>
+      <value>0.0</value>
+    </set>
+    <set>
+      <property>controls/electric/battery-switch</property>
+      <value>1</value>
+    </set>
+    <set>
+      <property>controls/electric/battery-switch[1]</property>
+      <value>1</value>
+    </set>
+    <set>
+      <property>controls/electric/inverter-switch</property>
+      <value>1</value>
+    </set>
+    <set>
+      <property>controls/electric/avionics-switch</property>
+      <value>1</value>
+    </set>
+    <set>
+      <property>controls/switches/gauge-light</property>
+      <value>1</value>
+    </set>
+    <set>
+      <property>instrumentation/adf[0]/power-btn</property>
+      <value>1</value>
+    </set>
+    <set>
+      <property>instrumentation/adf[1]/power-btn</property>
+      <value>1</value>
+    </set>
+    <set>
+      <property>instrumentation/heading-indicator[0]/serviceable</property>
+      <value>1</value>
+    </set>
+    <set>
+      <property>instrumentation/nav[0]/power-btn</property>
+      <value>1</value>
+    </set>
+    <set>
+      <property>instrumentation/nav[1]/power-btn</property>
+      <value>1</value>
+    </set>
+    <set>
+      <property>instrumentation/transponder/serviceable</property>
+      <value>1</value>
+    </set>
+    <set>    
+      <property>controls/switches/metar</property>
+      <value>1</value>
+    </set>
+  </init>
+  
+  <step>
+    <message>Lets look to some instruments
+      We start with the METAR Information.
+      .
+    </message>
+    <view>
+      <heading-offset-deg>23.0</heading-offset-deg>
+      <pitch-offset-deg>-32.2</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.5</x-offset-m>
+      <y-offset-m>5.7</y-offset-m>
+      <z-offset-m>-21.8</z-offset-m>
+      <field-of-view>22.8</field-of-view>
+    </view>
+    <error>
+      <message>Click the sun and cloud symbol
+	You see the latest and nearest metar information
+      </message>
+      <condition>
+	<property>controls/switches/metar</property>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+	<not>
+	  <property>controls/switches/metar</property>
+	</not>
+      </condition>
+    </exit>
+  </step>
+  
+  <step>
+    <message>Trim Neutralisation Panel 
+      .
+      Move your elevator trim
+      Move your rudder trim, optional
+      Move your aileron trim, optional
+    </message>
+    <view>
+      <heading-offset-deg>22.3</heading-offset-deg>
+      <pitch-offset-deg>-35.0</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.5</x-offset-m>
+      <y-offset-m>5.7</y-offset-m>
+      <z-offset-m>-21.8</z-offset-m>
+      <field-of-view>22.8</field-of-view>
+    </view>
+    <error>
+      <message>Trim Neutralisation Panel 
+	.
+	Move your elevator trim
+	Move your rudder trim, optional
+	Move your aileron trim, optional     
+      </message>
+      <condition>
+	<not>
+	  <property>controls/flight/elevator-trim</property>
+	</not>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+	<property>controls/flight/elevator-trim</property>
+      </condition>
+    </exit>
+  </step>
+  
+  <step>
+    <message>If the trims are not in neutral position then the lamps are going green.
+      Use this neutralisation of trims after use of autopilot
+      .
+      .
+      .
+    </message>
+    <view>
+      <heading-offset-deg>22.3</heading-offset-deg>
+      <pitch-offset-deg>-35.0</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.5</x-offset-m>
+      <y-offset-m>5.7</y-offset-m>
+      <z-offset-m>-21.8</z-offset-m>
+      <field-of-view>22.8</field-of-view>
+    </view>
+    <error>
+      <message>Now click on the green symbols and see your trim goes back to neutral position.
+	.
+	.
+	.
+	.
+      </message>
+      <condition>
+	<or>    
+	  <property>controls/flight/elevator-trim</property>
+	  <property>controls/flight/rudder-trim</property>
+	  <property>controls/flight/aileron-trim</property>  
+	</or>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+	<and>
+	  <not><property>controls/flight/elevator-trim</property></not>
+	  <not><property>controls/flight/rudder-trim</property></not>
+	  <not><property>controls/flight/aileron-trim</property></not>
+	</and>
+      </condition>
+    </exit>
+  </step>
+  
+  <step>
+    <message>The 3 altimeters. The upper and the left are metric.
+      The left one is depending on the GPS signal so it will not move and gives the altitude in meter (like the HUD in feet).
+    </message>
+    <view>
+      <heading-offset-deg>9.8</heading-offset-deg>
+      <pitch-offset-deg>-42</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.5</x-offset-m>
+      <y-offset-m>5.7</y-offset-m>
+      <z-offset-m>-21.8</z-offset-m>
+      <field-of-view>27.0</field-of-view>
+    </view>
+    <error>
+      <message>Set the QNH in hPa to 1018 in the upper one.
+	You see a tool-tip for the value, the instrument shows it in mmHg.
+	Watch as the other one (imperial) also moves and shows the QNH in inHG.
+      </message>
+      <condition>
+	<less-than>
+	  <property>instrumentation/altimeter/setting-hpa</property>
+	  <value>1017</value>    
+	</less-than>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+	<and>
+	  <less-than-equals>
+	    <property>instrumentation/altimeter/setting-hpa</property>
+	    <value>1019</value>    
+	  </less-than-equals>
+	  <greater-than-equals>
+	    <property>instrumentation/altimeter/setting-hpa</property>
+	    <value>1017</value>    
+	  </greater-than-equals>	  
+	</and>
+      </condition>
+    </exit>
+  </step>
+  
+  <step>
+    <message>Decision Hight.
+      Used for the last point of deactivating the autopilot befor landing, normaly set to 80-100 m.
+    </message>
+    <view>
+      <heading-offset-deg>342.0</heading-offset-deg>
+      <pitch-offset-deg>-29.6</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.5</x-offset-m>
+      <y-offset-m>5.7</y-offset-m>
+      <z-offset-m>-21.8</z-offset-m>
+      <field-of-view>33.1</field-of-view>
+    </view>
+    <error>
+      <message>Set the decision hight indicator to 80-100 m (260-340 ft).
+	A yellow lamp show the activ mode.
+	Also a big yellow "H" comes up at the control panel together with a warning sound.
+      </message>
+      <condition>
+	<less-than>
+	  <property>instrumentation/altimeter/decision-height</property>
+	  <value>260</value>    
+	</less-than>	    
+      </condition>
+    </error>
+    <exit>
+      <condition>
+	<and>
+	  <less-than-equals>
+	    <property>instrumentation/altimeter/decision-height</property>
+	    <value>343</value>    
+	  </less-than-equals>
+	  <greater-than-equals>
+	    <property>instrumentation/altimeter/decision-height</property>
+	    <value>260</value>    
+	  </greater-than-equals>	  
+	</and>
+      </condition>
+    </exit>
+  </step>
+  
+  <step>
+    <message>Now click the "H" placecard to deactivate the Indicator.
+      Now the instrument will be deactivated and all Lamps are out.
+      .
+      .
+      .
+    </message>
+    <view>
+      <heading-offset-deg>342.5</heading-offset-deg>
+      <pitch-offset-deg>-26.4</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.5</x-offset-m>
+      <y-offset-m>5.7</y-offset-m>
+      <z-offset-m>-21.8</z-offset-m>
+      <field-of-view>33.1</field-of-view>
+    </view>
+    <error>
+      <condition>
+	<greater-than-equals>
+	  <property>instrumentation/altimeter/decision-height</property>
+	  <value>1.0</value>  
+	</greater-than-equals>	    
+      </condition>
+    </error>
+    <exit>
+      <condition>
+	<less-than-equals>
+	  <property>instrumentation/altimeter/decision-height</property>
+	  <value>0.0</value>  
+	</less-than-equals>	    
+      </condition>
+    </exit>
+  </step>
+  
+  <step>
+    <message>Flaps, Slats and Spoilers.
+      .
+      .
+      .
+      .
+    </message>
+    <view>
+      <heading-offset-deg>320.8</heading-offset-deg>
+      <pitch-offset-deg>-21.5</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.5</x-offset-m>
+      <y-offset-m>5.7</y-offset-m>
+      <z-offset-m>-21.8</z-offset-m>
+      <field-of-view>22.8</field-of-view>
+    </view>
+    <error>
+      <message>Set 4 Flaps     [/].
+	Set 2 Slats     f/d.
+	Set 2 Spoilers  k/j.
+	.
+	All is shown in the respective indicators.
+      </message>
+      <condition>
+	<or>
+	  <not-equals>
+	    <property>controls/flight/flaps</property>
+	    <value>0.48</value>  
+	  </not-equals>
+	  <not-equals>
+	    <property>controls/flight/slats</property>
+	    <value>0.5</value>  
+	  </not-equals>
+	  <not-equals>
+	    <property>controls/flight/spoilers</property>
+	    <value>0.5</value>  
+	  </not-equals>
+	</or>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+	<and>
+	  <equals>
+	    <property>controls/flight/flaps</property>
+	    <value>0.48</value>  
+	  </equals>
+	  <equals>
+	    <property>controls/flight/slats</property>
+	    <value>0.5</value>  
+	  </equals>
+	  <equals>
+	    <property>controls/flight/spoilers</property>
+	    <value>0.5</value>  
+	  </equals>
+	</and>
+      </condition>
+    </exit>
+  </step>
+  
+  <step>
+    <message>Lets change to the engineer view.
+      You may change your view to this panel by using "&lt;"
+      .
+      .
+      .
+    </message>
+    <view>
+      <view-number>11</view-number>
+      <heading-offset-deg>185.4</heading-offset-deg>
+      <pitch-offset-deg>7.8</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>0.8</x-offset-m>
+      <y-offset-m>5.1</y-offset-m>
+      <z-offset-m>-20.7</z-offset-m>
+      <field-of-view>88.3</field-of-view>
+    </view>
+    <wait>5</wait> 
+  </step>
+  
+  <step>
+    <message>Setting the magnetic variation in the referenz compass.
+      In the referenz compass you get a tool-tip by hoovering the middle of the compass.
+      That is the variation for this place, it may change during flight and should be adjusted from time to time.
+      .
+      .
+    </message>
+    <view>
+      <view-number>11</view-number>
+      <heading-offset-deg>183.1</heading-offset-deg>
+      <pitch-offset-deg>19.6</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>0.8</x-offset-m>
+      <y-offset-m>5.1</y-offset-m>
+      <z-offset-m>-20.7</z-offset-m>
+      <field-of-view>40.1</field-of-view>
+    </view>
+    <wait>12</wait>
+    <error>
+      <message>Now set the magnetic variation 
+	Turn the knob on the right so that the needle covers the marker.
+	For your comfort there is also a tool-tip.
+	.
+	.
+      </message>
+      <condition>
+	<greater-than>    
+	  <property>environment/magnetic-variation-deg-tutorial</property>
+	  <value>0.5</value>
+	</greater-than>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+	<and>
+	  <greater-than-equals>
+	    <property>environment/magnetic-variation-deg-tutorial</property>
+	    <value>-0.5</value>  
+	  </greater-than-equals>
+	  <less-than-equals>
+	    <property>environment/magnetic-variation-deg-tutorial</property>
+	    <value>0.5</value>  
+	  </less-than-equals>
+	</and>
+      </condition>
+    </exit>
+  </step>
+  
+  <step>
+    <message>
+      The SKWAK, or transponder.
+      .
+      .
+      .
+      .
+    </message>
+    <view>
+      <view-number>11</view-number>
+      <heading-offset-deg>199.3</heading-offset-deg>
+      <pitch-offset-deg>19.8</pitch-offset-deg>
+      <field-of-view>34.5</field-of-view>
+    </view>
+    <error>
+      <message>The SKWAK, or transponder.
+	Set the transponder code to 1234.
+	And activate it by setting to A (on),C (altitude) or D (ground) mode.
+	.
+	.
+      </message>
+      <condition>
+	<or>
+	  <not-equals>
+	    <property>instrumentation/transponder/id-code</property>
+	    <value>1234</value>    
+	  </not-equals>
+	  <equals>
+	    <property>instrumentation/transponder/inputs/mode</property>
+	    <value>1</value>    
+	  </equals>
+	</or>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+	<and>
+	  <equals>
+	    <property>instrumentation/transponder/id-code</property>
+	    <value>1234</value>    
+	  </equals>
+	  <not-equals>
+	    <property>instrumentation/transponder/inputs/mode</property>
+	    <value>1</value>    
+	  </not-equals>
+	</and>
+      </condition>
+    </exit>
+  </step>
+  
+  <step>
+    <message>The ADF (ARK) radios for NDB navigation.
+      .
+      .
+      .
+      .
+    </message>
+    <view>
+      <view-number>11</view-number>
+      <heading-offset-deg>164.0</heading-offset-deg>
+      <pitch-offset-deg>2.8</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>0.8</x-offset-m>
+      <y-offset-m>5.1</y-offset-m>
+      <z-offset-m>-20.7</z-offset-m>
+      <field-of-view>47.9</field-of-view>
+    </view>
+    <error>
+      <message>The ADF (ARK) radios for NDB navigation.
+	.
+	Set the first to 456.
+	And the second to 123.
+	You may put in a reserve frequenzy and change the activ one by using the switch.
+      </message>
+      <condition>
+	<or>
+	  <not-equals>
+	    <property>instrumentation/ark-15/digit-1-1</property>
+	    <value>6</value>    
+	  </not-equals>
+	  <not-equals>
+	    <property>instrumentation/ark-15/digit-1-2</property>
+	    <value>5</value>    
+	  </not-equals>
+	  <not-equals>
+	    <property>instrumentation/ark-15/digit-1-3</property>
+	    <value>4</value>    
+	  </not-equals>
+	  <not-equals>
+	    <property>instrumentation/ark-15[1]/digit-1-1</property>
+	    <value>3</value>    
+	  </not-equals>
+	  <not-equals>
+	    <property>instrumentation/ark-15[1]/digit-1-2</property>
+	    <value>2</value>    
+	  </not-equals>
+	  <not-equals>
+	    <property>instrumentation/ark-15[1]/digit-1-3</property>
+	    <value>1</value>    
+	  </not-equals>
+	</or>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+	<and>
+	  <equals>
+	    <property>instrumentation/ark-15/digit-1-1</property>
+	    <value>6</value>    
+	  </equals>
+	  <equals>
+	    <property>instrumentation/ark-15/digit-1-2</property>
+	    <value>5</value>    
+	  </equals>
+	  <equals>
+	    <property>instrumentation/ark-15/digit-1-3</property>
+	    <value>4</value>    
+	  </equals>
+	  <equals>
+	    <property>instrumentation/ark-15[1]/digit-1-1</property>
+	    <value>3</value>    
+	  </equals>
+	  <equals>
+	    <property>instrumentation/ark-15[1]/digit-1-2</property>
+	    <value>2</value>    
+	  </equals>
+	  <equals>
+	    <property>instrumentation/ark-15[1]/digit-1-3</property>
+	    <value>1</value>    
+	  </equals>
+	</and>
+      </condition>
+    </exit>
+  </step>
+  
+  <step>
+    <message>The Kurs-MPs, Radios for NAV or ILS navigation.
+      Each instrument has 2 separate cases, one for the curse and one for the frequency.
+      Only the left instrument is working for ILS or NAV.
+      Set the curse to 118 on the left side, and the frequency to 110.35 on the right side.  
+      A green lamp and a sound comes up if it is in range, volume of sound may be adjusted.
+    </message>
+    <view>
+      <view-number>11</view-number> 
+      <heading-offset-deg>200.5</heading-offset-deg>
+      <pitch-offset-deg>4.4</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>0.8</x-offset-m>
+      <y-offset-m>5.1</y-offset-m>
+      <z-offset-m>-20.7</z-offset-m>
+      <field-of-view>37.2</field-of-view>
+    </view>
+    <wait>10</wait>
+    <error>
+      <message>The Kurs-MPs, Radios for NAV or ILS navigation.
+	Each instrument has 2 separate cases, one for the curse and one for the frequency.
+	Only the left instrument is working for ILS or NAV.
+	Set the curse to 118 on the left side, and the frequency to 110.35 on the right side.  
+	A green lamp and a sound comes up if it is in range, volume of sound may be adjusted.
+      </message>
+      <condition>
+	<or>
+	  <not-equals>
+	    <property>instrumentation/kurs-mp-1/digit-f-hi</property>
+	    <value>110</value>    
+	  </not-equals>
+	  <greater-than>
+	    <property>instrumentation/kurs-mp-1/digit-f-low</property>
+	    <value>35</value>    
+	  </greater-than>
+	  <not-equals>
+	    <property>instrumentation/kurs-mp-1/digit-h-dec</property>
+	    <value>1</value>    
+	  </not-equals>
+	  <not-equals>
+	    <property>instrumentation/kurs-mp-1/digit-h-hund</property>
+	    <value>1</value>    
+	  </not-equals>
+	  <not-equals>
+	    <property>instrumentation/kurs-mp-1/digit-h-ones</property>
+	    <value>8</value>    
+	  </not-equals>
+	</or>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+	<and>
+	  <equals>
+	    <property>instrumentation/kurs-mp-1/digit-f-hi</property>
+	    <value>110</value>    
+	  </equals>
+	  <less-than-equals>
+	    <property>instrumentation/kurs-mp-1/digit-f-low</property>
+	    <value>35</value>    
+	  </less-than-equals>
+	  <greater-than>
+	    <property>instrumentation/kurs-mp-1/digit-f-low</property>
+	    <value>34</value>    
+	  </greater-than>
+	  <equals>
+	    <property>instrumentation/kurs-mp-1/digit-h-dec</property>
+	    <value>1</value>    
+	  </equals>
+	  <equals>
+	    <property>instrumentation/kurs-mp-1/digit-h-hund</property>
+	    <value>1</value>    
+	  </equals>
+	  <equals>
+	    <property>instrumentation/kurs-mp-1/digit-h-ones</property>
+	    <value>8</value>    
+	  </equals>
+	</and>
+      </condition>
+    </exit>
+  </step>
+  
+  <step>
+    <message>HSI Horizontal Situation Indicator.
+      A multi-functional instrument.
+      .
+      .
+      .
+    </message>
+    <view>
+      <view-number>0</view-number> 
+      <heading-offset-deg>358.7</heading-offset-deg>
+      <pitch-offset-deg>-38.0</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.5</x-offset-m>
+      <y-offset-m>5.7</y-offset-m>
+      <z-offset-m>-21.8</z-offset-m>
+      <field-of-view>27.5</field-of-view>
+    </view>
+    <error>
+      <message>Turn the left knob to set the heading.
+	Turn the right knob to set the course for NAV or ILS.
+	Set both to the top position.
+	.
+	.
+      </message>
+      <condition>
+	<or>
+	  <less-than>
+	    <property>instrumentation/heading-indicator-fg/heading-bug-error-deg</property>
+	    <value>-0.75</value>  
+	  </less-than>
+	  <greater-than>
+	    <property>instrumentation/heading-indicator-fg/heading-bug-error-deg</property>
+	    <value>0.75</value>  
+	  </greater-than> 
+	</or>  
+      </condition>
+    </error>
+    <exit>
+      <condition>
+	<and>
+	  <less-than>
+	    <property>instrumentation/heading-indicator-fg/heading-bug-error-deg</property>
+	    <value>0.75</value>  
+	  </less-than>
+	  <greater-than>
+	    <property>instrumentation/heading-indicator-fg/heading-bug-error-deg</property>
+	    <value>-0.75</value>  
+	  </greater-than> 
+	</and>
+      </condition>
+    </exit>
+  </step>
+  
+  <step>
+    <message>You see 2 red flags,
+      the upper one tells you that there is no glideslope,
+      the lower one shows that no ILS or NAV signal is activ.
+      .
+      The upper middle scale tells you the wind drift.
+    </message>
+    <wait>8</wait>
+    <error>
+      <message>You see 2 red flags,
+	the upper one tells you that there is no glideslope,
+	the lower one shows that no ILS or NAV signal is activ.
+	.
+	The upper middle scale tells you the wind drift.
+      </message>
+      <condition>
+	<or>
+	  <less-than>
+	    <property>instrumentation/heading-indicator-fg/heading-bug-error-deg</property>
+	    <value>-0.5</value>  
+	  </less-than>
+	  <greater-than>
+	    <property>instrumentation/heading-indicator-fg/heading-bug-error-deg</property>
+	    <value>0.5</value>  
+	  </greater-than> 
+	</or>  
+      </condition>
+    </error>
+    <wait>2</wait>
+  </step>
+  
+  <step>
+    <message>Wing Sweep Indicator,
+      "Q" folds the wings in 4 steps inside,
+      "q" unfolds them.
+      .
+      .
+    </message>
+    <view>
+      <heading-offset-deg>339.6</heading-offset-deg>
+      <pitch-offset-deg>-28.0</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.5</x-offset-m>
+      <y-offset-m>5.7</y-offset-m>
+      <z-offset-m>-21.8</z-offset-m>
+      <field-of-view>27.5</field-of-view>
+    </view>
+    <error>
+      <message>Wing Sweep Indicator,
+	Folds the wings in 4 steps inside, use "Q" for it.
+	("q" unfolds them)
+	Fold them for taxi and parking to the inner position.
+	Also usable for emergency starting.
+      </message>
+      <condition>
+	<less-than>
+	  <property>surface-positions/wing-sweep-pos-norm</property>
+	  <value>65</value>  
+	</less-than>	    
+      </condition>
+    </error>    
+    <exit>
+      <condition>
+	<equals>
+	  <property>surface-positions/wing-sweep-pos-norm</property>
+	  <value>65</value>  
+	</equals>
+      </condition>
+    </exit>
+  </step>
+  
+  <step>
+    <message>Speed Indicators.
+      We have 4 of them!
+      .
+      Lets start with the mach meter on the left. 
+      Maximum value is 2.0, between 0.95 and 1.05 the white square goes red to indicate the brake throu the sound barrier.
+    </message>
+    <view>
+      <heading-offset-deg>17.7</heading-offset-deg>
+      <pitch-offset-deg>-29.2</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.5</x-offset-m>
+      <y-offset-m>5.7</y-offset-m>
+      <z-offset-m>-21.8</z-offset-m>
+      <field-of-view>19.6</field-of-view>
+    </view>
+    <wait>12</wait>    
+  </step>
+  
+  <step>
+    <message>The left Indicated Air Speed instrument is metric up to 1000 km/h.
+      The right is imperial and there you may set your indicated air speed (IAS).
+      .
+      Turn the knob to 200 kts and see the red marker in the other one also moving.
+      .
+    </message>
+    <view>
+      <heading-offset-deg>8.1</heading-offset-deg>
+      <pitch-offset-deg>-29.6</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.5</x-offset-m>
+      <y-offset-m>5.7</y-offset-m>
+      <z-offset-m>-21.8</z-offset-m>
+      <field-of-view>19.6</field-of-view>
+    </view>
+    <error>
+      <message>The left Indicated Air Speed instrument is metric up to 1000 km/h.
+	The right is imperial and there you may set your indicated air speed (IAS).
+	.
+	Turn the knob to 200 kts and see the red marker in the other one also moving.
+	.
+      </message>
+      <condition>
+	<not-equals>
+	  <property>autopilot/settings/target-speed-kt</property>
+	  <value>200</value>
+	</not-equals>
+      </condition>
+    </error>    
+    <exit>
+      <condition>
+	<equals>
+	  <property>autopilot/settings/target-speed-kt</property>
+	  <value>200</value> 
+	</equals>
+      </condition>
+    </exit>
+  </step>
+  
+  <step>
+    <message>Metric Speed Indicator.
+      .
+      .
+      The big needle shows the airspeed,
+      the small one the groundspeed.
+    </message>
+    <view>
+      <heading-offset-deg>6.3</heading-offset-deg>
+      <pitch-offset-deg>-33.0</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.5</x-offset-m>
+      <y-offset-m>5.7</y-offset-m>
+      <z-offset-m>-21.8</z-offset-m>
+      <field-of-view>19.6</field-of-view>
+    </view>
+    <wait>12</wait>    
+  </step>
+  
+  <end>                           
+    <view>
+      <heading-offset-deg>0.0</heading-offset-deg>
+      <pitch-offset-deg>-10.0</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.5</x-offset-m>
+      <y-offset-m>5.7</y-offset-m>
+      <z-offset-m>-21.8</z-offset-m>
+      <field-of-view>95.0</field-of-view>
+    </view>
+    <nasal>
+      <script>
+	setprop("sim/messages/copilot", "So, we are finished for now.");
+	setprop("sim/messages/copilot", "More instruments will come up soon.");
+      </script>
+    </nasal>
+  </end>
+  
+  </PropertyList>

@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<!--###################################################################################
+		Lake of Constance Hangar :: M.Kraus
+		Boeing 707 for Flightgear Septemper 2013
+		This file is licenced under the terms of the GNU General Public Licence V2 or later
+		###################################################################################
+-->
+<!--
+    ###################################################################################################
+    Antonov-Aircrafts and SpaceShuttle :: Herbert Wagner November2014-May2015
+    Development is ongoing, see latest version: www.github.com/HerbyW
+    This file is licenced under the terms of the GNU General Public Licence V3 or later
+    
+    Reverser, SpaceShuttle, Instrumentation and all Animations for gears, tail-gear-steering, flaps,
+    slats, spoilers, rudder, aelerion and lights for MP-modus with and without Rembrandt added.
+    ###################################################################################################
+-->
+
+<PropertyList>
+	<particlesystem>
+		<name>engine-smoke</name>
+		<texture>smoke.png</texture>
+		<condition>
+		  <and>
+		    <not><property>sim/multiplay/generic/int[18]</property></not>
+		    <greater-than>
+		      <property>sim/multiplay/generic/int[0]</property>
+	              <value>0</value>
+		    </greater-than>
+		    <greater-than>
+		      <property>engines/engine[3]/n2</property>
+		      <value>77</value>
+		    </greater-than>
+		  </and>
+		</condition>
+		
+		<emissive>false</emissive>
+		<lighting>false</lighting>
+		<align>billboard</align>
+		<attach>world</attach>
+		<placer>
+			<type>point</type>
+		</placer>
+		<shooter>
+			<theta-min-deg>20</theta-min-deg>
+			<theta-max-deg>35</theta-max-deg>
+			<phi-min-deg>-15</phi-min-deg>
+			<phi-max-deg> 15</phi-max-deg>
+			<speed-mps>
+				<value>180</value>
+				<spread>3.5</spread>
+			</speed-mps>
+			<rotation-speed>
+				<x-min-deg-sec>0</x-min-deg-sec>
+				<y-min-deg-sec>0</y-min-deg-sec>
+				<z-min-deg-sec>-18</z-min-deg-sec>
+				<x-max-deg-sec>0</x-max-deg-sec>
+				<y-max-deg-sec>0</y-max-deg-sec>
+				<z-max-deg-sec>18</z-max-deg-sec>
+			</rotation-speed>
+		</shooter>
+		<counter>
+			<particles-per-sec>
+				<value>5</value>
+				<spread>3</spread>
+			</particles-per-sec>
+		</counter>
+		<particle>
+			<start>
+				<color>
+					<red><value>0.8</value></red>
+					<green><value>0.5</value></green>
+					<blue><value>0.12</value></blue>
+					<alpha><value>0.2</value></alpha>
+				</color>
+				<size>
+					<value>10</value>
+				</size>
+			</start>
+			<end>
+				<color>
+					<red><value>0.16</value></red>
+					<green><value>0.10</value></green>
+					<blue><value>0.024</value></blue>
+					<alpha><value>0.05</value></alpha>
+				</color>
+				<size>
+					<value>80</value>
+				</size>
+			</end>
+			<life-sec>
+				<value>7</value>
+			</life-sec>
+			<mass-kg>0.28</mass-kg>
+			<radius-m>0.40</radius-m>
+		</particle>
+		<program>
+			<fluid>air</fluid>
+			<gravity>true</gravity>
+			<wind>true</wind>
+		</program>
+	</particlesystem>
+</PropertyList>

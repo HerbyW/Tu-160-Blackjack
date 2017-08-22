@@ -1,0 +1,529 @@
+<PropertyList>
+  <name>Manual Startup</name>
+  <description>Manual Start up
+    
+    Set throttles to "IDLE" position
+    Main and Help Batteries and Inverter
+    Switch on Generators
+    Switch on Beacons, NAV and Instrument lights
+    Switch on all Radio and Navigation Instruments and the Transponder
+    Switch on fuel system
+    Switch on all 4 Ignitions
+    Push left starter button
+    Push right starter button
+    Push inner starter buttons
+    Switch on taxi-light</description>
+  
+  <init>
+    <set>
+      <property>sim/current-view/view-number</property>
+      <value>0</value>
+    </set>
+    <set>
+      <property>controls/gear/brake-parking</property>
+      <value>1</value>
+    </set>
+    <set>
+      <property>controls/flight/flaps</property>
+      <value>0.0</value>
+    </set>
+    <set>
+      <property>controls/electric/external-power</property>
+      <value>0</value>
+    </set>
+    <set>
+      <property>controls/electric/battery-switch</property>
+      <value>0</value>
+    </set>
+    <set>
+      <property>controls/electric/battery-switch[1]</property>
+      <value>0</value>
+    </set>
+    <set>
+      <property>controls/electric/inverter-switch</property>
+      <value>0</value>
+    </set>    
+    <set>
+      <property>controls/lighting/nav-lights</property>
+      <value>0</value>
+    </set>
+    <set>
+      <property>controls/switches/gauge-light</property>
+      <value>0</value>
+    </set>
+    <set>
+      <property>controls/lighting/beacon</property>
+      <value>0</value>
+    </set>
+    <set>
+      <property>controls/switches/fuel</property>
+      <value>0</value>
+    </set>
+    <set>
+      <property>controls/electric/engine[0]/generator</property>
+      <value>0</value>
+    </set>
+    <set>
+      <property>controls/electric/engine[1]/generator</property>
+      <value>0</value>
+    </set>
+    <set>
+      <property>controls/electric/engine[2]/generator</property>
+      <value>0</value>
+    </set>
+    <set>
+      <property>controls/electric/engine[3]/generator</property>
+      <value>0</value>
+    </set>
+    <set>
+      <property>controls/engines/engine[0]/cutoff</property>
+      <value>1</value>
+    </set>
+    <set>
+      <property>controls/engines/engine[1]/cutoff</property>
+      <value>1</value>
+    </set>
+    <set>
+      <property>controls/engines/engine[2]/cutoff</property>
+      <value>1</value>
+    </set>
+    <set>
+      <property>controls/engines/engine[3]/cutoff</property>
+      <value>1</value>
+    </set>
+    <set>
+      <property>controls/engines/engine[0]/throttle</property>
+      <value>0.0</value>
+    </set>
+    <set>
+      <property>controls/engines/engine[1]/throttle</property>
+      <value>0.0</value>
+    </set>
+    <set>
+      <property>engines/engine[0]/running</property>
+      <value>0</value>
+    </set>
+    <set>
+      <property>engines/engine[1]/running</property>
+      <value>0</value>
+    </set>
+    <set>
+      <property>engines/engine[2]/running</property>
+      <value>0</value>
+    </set>
+    <set>
+      <property>engines/engine[3]/running</property>
+      <value>0</value>
+    </set>
+  </init>
+  
+  <step>
+    <message>
+      Set throttles to "IDLE" position{|.}
+      "OFF" position will shut down engines{|.}
+      with park brake set{|.}
+    </message>
+    <view>
+      <heading-offset-deg>333.2</heading-offset-deg>
+      <pitch-offset-deg>-52.8</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.5</x-offset-m>
+      <y-offset-m>5.7</y-offset-m>
+      <z-offset-m>-21.8</z-offset-m>
+      <field-of-view>35.0</field-of-view>
+    </view>
+    <error>
+      <message>
+	Set throttles to "IDLE" position{|.}
+	"OFF" position will shut down engines{|.}
+	with park brake set{|.}
+      </message>
+      <condition>
+	<or>
+	  <greater-than>
+	    <property>controls/engines/engine[0]/throttle</property>
+	    <value>0.15</value>
+	  </greater-than>
+	  <greater-than>
+	    <property>controls/engines/engine[1]/throttle</property>
+	    <value>0.15</value>
+	  </greater-than>
+	</or>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+	<and>
+	  <greater-than>
+	    <property>controls/engines/engine[0]/throttle</property>
+	    <value>0.03</value>
+	  </greater-than>
+	  <less-than>
+	    <property>controls/engines/engine[0]/throttle</property>
+	    <value>0.15</value>
+	  </less-than>
+	</and>
+      </condition>
+    </exit>
+  </step>
+  
+  <step>
+    <message>
+      Switch on Main and Help batteries and Inverter.{|.}
+    </message>
+    <view>
+      <heading-offset-deg>330.5</heading-offset-deg>
+      <pitch-offset-deg>48.2</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.5</x-offset-m>
+      <y-offset-m>5.7</y-offset-m>
+      <z-offset-m>-21.8</z-offset-m>
+      <field-of-view>62.8</field-of-view>
+    </view>
+    <error>
+      <message>
+	Switch on Main and Help batteries and Inverter.{|.}
+      </message>
+      <condition>
+	<and>
+	  <not>
+	    <property>controls/electric/battery-switch</property>
+	    <property>controls/electric/battery-switch[1]</property>
+	    <property>controls/electric/inverter-switch</property>
+	  </not>
+	</and>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+	<and>
+	  <property>controls/electric/battery-switch</property>
+	  <property>controls/electric/battery-switch[1]</property>
+	  <property>controls/electric/inverter-switch</property>
+	</and>
+      </condition>
+    </exit>
+  </step>
+  
+  <step>
+    <message>
+      Switch on generators.{|.}
+    </message>
+    <view>
+      <heading-offset-deg>341.6</heading-offset-deg>
+      <pitch-offset-deg>-43.6</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.5</x-offset-m>
+      <y-offset-m>5.7</y-offset-m>
+      <z-offset-m>-21.8</z-offset-m>
+      <field-of-view>30.1</field-of-view>
+    </view>
+    <error>
+      <message>
+	Switch on generators.{|.}
+      </message>
+      <condition>
+	<and>
+	  <not>                        
+	    <property>controls/electric/engine[0]/generator</property>
+	    <property>controls/electric/engine[1]/generator</property>
+	    <property>controls/electric/engine[2]/generator</property>
+	    <property>controls/electric/engine[3]/generator</property>
+	  </not>
+	</and>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+	<and>                        
+	  <property>controls/electric/engine[0]/generator</property>
+	  <property>controls/electric/engine[1]/generator</property>
+	  <property>controls/electric/engine[2]/generator</property>
+	  <property>controls/electric/engine[3]/generator</property>
+	</and>
+      </condition>
+    </exit>
+  </step>
+  
+  <step>
+    <message>
+      Switch on Beacons, NAV and Instrument lights.{|.}
+    </message>
+    <view>
+      <heading-offset-deg>325.1</heading-offset-deg>
+      <pitch-offset-deg>-19.2</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.5</x-offset-m>
+      <y-offset-m>5.7</y-offset-m>
+      <z-offset-m>-21.8</z-offset-m>
+      <field-of-view>25.0</field-of-view>
+    </view>
+    <error>
+      <message>Switch on Beacons, NAV and Instrument lights.{|.}
+      </message>
+      <condition>
+	<not>
+	  <property>controls/lighting/nav-lights</property>
+	  <property>controls/switches/gauge-light</property>
+	  <property>controls/lighting/beacon</property>
+	</not>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+	<property>controls/lighting/nav-lights</property>
+	<property>controls/switches/gauge-light</property>
+	<property>controls/lighting/beacon</property>
+      </condition>
+    </exit>
+  </step>
+  
+  <step>
+    <message>
+      Switch on all Radio and Navigation Instruments and the Transponder.{|.}
+    </message>
+    <view>
+      <heading-offset-deg>296.3</heading-offset-deg>
+      <pitch-offset-deg>31.2</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.5</x-offset-m>
+      <y-offset-m>5.7</y-offset-m>
+      <z-offset-m>-21.8</z-offset-m>
+      <field-of-view>62.8</field-of-view>
+    </view>
+    <error>
+      <message>Switch on all Radio and Navigation Instruments and the Transponder.{|.}
+      </message>
+      <condition>
+	<not>
+	  <property>instrumentation/adf[0]/power-btn</property>
+	  <property>instrumentation/adf[1]/power-btn</property>
+	  <property>instrumentation/heading-indicator[0]/serviceable</property>
+	  <property>instrumentation/nav[0]/power-btn</property>
+	  <property>instrumentation/nav[1]/power-btn</property>
+	  <property>instrumentation/transponder/serviceable</property>
+	</not>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+	<property>instrumentation/adf[0]/power-btn</property>
+	<property>instrumentation/adf[1]/power-btn</property>
+	<property>instrumentation/heading-indicator[0]/serviceable</property>
+	<property>instrumentation/nav[0]/power-btn</property>
+	<property>instrumentation/nav[1]/power-btn</property>
+	<property>instrumentation/transponder/serviceable</property>
+      </condition>
+    </exit>
+  </step>
+  
+  <step>
+    <message>
+      Switch on fuel system, knob to any right position.{|.}
+    </message>
+    <view>
+      <heading-offset-deg>330.5</heading-offset-deg>
+      <pitch-offset-deg>-41.2</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.5</x-offset-m>
+      <y-offset-m>5.7</y-offset-m>
+      <z-offset-m>-21.8</z-offset-m>
+      <field-of-view>19.9</field-of-view>
+    </view>
+    <error>
+      <message>
+	Switch on fuel system, knob to any right position.{|.}
+      </message>
+      <condition>
+	<and>
+	  <not>
+	    <property>controls/switches/fuel</property>
+	  </not>
+	</and>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+	<and>
+	  <property>controls/switches/fuel</property>
+	</and>
+      </condition>
+    </exit>
+  </step>
+  
+  <step>
+    <message>
+      Switch on all 4 ignitions{|.}
+    </message>
+    <view>
+      <heading-offset-deg>331.2</heading-offset-deg>
+      <pitch-offset-deg>-36.6</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.5</x-offset-m>
+      <y-offset-m>5.7</y-offset-m>
+      <z-offset-m>-21.8</z-offset-m>
+      <field-of-view>29.0</field-of-view>
+    </view>
+    <error>
+      <message>Switch on all 4 ignitions{|.}
+      </message>
+      <condition>
+	<not>
+	  <property>controls/engines/engine/ignition</property>
+	  <property>controls/engines/engine[1]/ignition</property>
+	  <property>controls/engines/engine[2]/ignition</property>
+	  <property>controls/engines/engine[3]/ignition</property>
+	</not>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+	<property>controls/engines/engine/ignition</property>
+	<property>controls/engines/engine[1]/ignition</property>
+	<property>controls/engines/engine[2]/ignition</property>
+	<property>controls/engines/engine[3]/ignition</property>
+      </condition>
+    </exit>
+  </step>
+  
+  <step>
+    <message>
+      Push left starter button{|.}
+    </message>
+    <view>
+      <heading-offset-deg>332.3</heading-offset-deg>
+      <pitch-offset-deg>-36.6</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.5</x-offset-m>
+      <y-offset-m>5.7</y-offset-m>
+      <z-offset-m>-21.8</z-offset-m>
+      <field-of-view>37.7</field-of-view>
+    </view>
+    <error>
+      <message>
+	Wait for the left engine to spool up and ignite{|.}
+	Engine progress can be viewed on the RPMs{|.}
+      </message>
+      <condition>
+	<property>controls/engines/engine/cutoff</property>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+	<not>
+	  <property>controls/engines/engine/cutoff</property>
+	</not>
+      </condition>
+    </exit>
+  </step>
+  
+  <step>
+    <message>
+      Push right starter{|.}
+    </message>
+    <view>
+      <heading-offset-deg>342.2</heading-offset-deg>
+      <pitch-offset-deg>-44.4</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.5</x-offset-m>
+      <y-offset-m>5.7</y-offset-m>
+      <z-offset-m>-21.8</z-offset-m>
+      <field-of-view>29.0</field-of-view>
+    </view>
+    <error>
+      <message>
+	Wait for the right engine to spool up and ignite{|.}
+	Engine progress can be viewed on the RPMs{|.}
+      </message>
+      <condition>
+	<property>controls/engines/engine[3]/cutoff</property>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+	<not>
+	  <property>controls/engines/engine[3]/cutoff</property>
+	</not>
+      </condition>
+    </exit>
+  </step>
+  
+  <step>
+    <message>
+      Push inner left and inner right starter{|.}
+    </message>
+    <view>
+      <heading-offset-deg>342.2</heading-offset-deg>
+      <pitch-offset-deg>-44.4</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.5</x-offset-m>
+      <y-offset-m>5.7</y-offset-m>
+      <z-offset-m>-21.8</z-offset-m>
+      <field-of-view>29.0</field-of-view>
+    </view>
+    <error>
+      <message>
+	Wait for the right engines to spool up and ignite{|.}
+	Engine progress can be viewed on the RPMs{|.}
+      </message>
+      <condition>
+	<property>controls/engines/engine[1]/cutoff</property>
+	<property>controls/engines/engine[2]/cutoff</property>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+	<not>
+	  <property>controls/engines/engine[1]/cutoff</property>
+	  <property>controls/engines/engine[2]/cutoff</property>
+	</not>
+      </condition>
+    </exit>
+  </step>
+  
+  
+  <step>
+    <message>
+      Switch on taxi-light{|.}
+    </message>
+    <view>
+      <heading-offset-deg>331.8</heading-offset-deg>
+      <pitch-offset-deg>-21.2</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.5</x-offset-m>
+      <y-offset-m>5.7</y-offset-m>
+      <z-offset-m>-21.8</z-offset-m>
+      <field-of-view>17.8</field-of-view>
+    </view>
+    <error>
+      <message>
+	Switch on taxi-light{|.}
+      </message>
+      <condition>
+	<not>
+	  <property>controls/lighting/taxi-light</property>
+	</not>
+      </condition>
+    </error>
+    <exit>
+      <condition>
+	<property>controls/lighting/taxi-light</property>
+      </condition>
+    </exit>
+  </step>
+  
+  <end>
+    <message>
+      Release Park brake (shift b){|.}
+      Set flaps to 15 degrees{|.}
+      and your ready  to roll ! {|.}
+    </message>
+    <heading-offset-deg>359.5</heading-offset-deg>
+    <pitch-offset-deg>-11.8</pitch-offset-deg>
+    <roll-offset-deg>0.0</roll-offset-deg>
+    <x-offset-m>-0.5</x-offset-m>
+    <y-offset-m>5.7</y-offset-m>
+    <z-offset-m>-21.8</z-offset-m>
+    <field-of-view>100.4</field-of-view>
+  </end>
+</PropertyList>

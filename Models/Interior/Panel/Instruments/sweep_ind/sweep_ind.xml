@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!--
+    #############################################################################
+    #    (C) 2015 by Herbert Wagner                                             #
+    #############################################################################	  
+    -->
+
+<!-- Wing Sweep Indicator for TU-160 -->
+<PropertyList>
+ <path>sweep_ind.ac</path>
+<!-- Internal instruments lighting -->
+<animation>
+  <type>material</type>
+  <object-name>base</object-name>
+  <object-name>needle_r</object-name>
+  <object-name>needle_l</object-name>
+  <emission>
+      <factor-prop>controls/switches/gauge-light</factor-prop>
+      <red>   0.35 </red>
+      <green> 0.35 </green>
+      <blue>  0.35 </blue>
+    </emission>
+</animation>
+
+<!-- External lighting -->
+<animation>
+  <type>material</type>
+  <object-name>cover</object-name>
+  <emission>
+      <factor-prop>controls/switches/gauge-light</factor-prop>
+      <red>   0.35 </red>
+      <green> 0.35 </green>
+      <blue>  0.35 </blue>
+    </emission>
+</animation>
+  
+<!--Needles-->
+<animation>
+    <type>rotate</type>
+    <object-name>needle_r</object-name>
+    <property>surface-positions/wing-sweep-pos-norm</property>
+    <interpolation>
+      <entry><ind>	20.0</ind>	<dep>	-25.0</dep></entry>
+      <entry><ind>	65.0</ind>	<dep>	40.0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.0</x-m>
+      <y-m>0.00295</y-m>
+      <z-m>0.0</z-m>
+    </center>
+    <axis>
+      <x>-1.0</x>
+      <y>0.0</y>
+      <z>0.0</z>
+    </axis>
+</animation>
+<animation>
+  <type>rotate</type>
+  <object-name>needle_l</object-name>
+  <property>surface-positions/wing-sweep-pos-norm</property>
+  <interpolation>
+    <entry><ind>	20.0</ind>	<dep>	-25.0</dep></entry>
+    <entry><ind>	65.0</ind>	<dep>	40.0</dep></entry>
+  </interpolation>
+  <center>
+    <x-m>-0.005</x-m>
+    <y-m>-0.00405</y-m>
+    <z-m>-0.0002</z-m>
+  </center>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+
+
+
+</PropertyList>

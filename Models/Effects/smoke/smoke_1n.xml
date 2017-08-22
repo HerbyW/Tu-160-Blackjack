@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+
+<!--
+ 
+HerbyW 2015
+
+-->
+
+<PropertyList>
+	<particlesystem>
+		<name>engine-smoke</name>
+		
+		<texture>smoke.png</texture>
+		
+		<condition>
+		  <not><property>sim/multiplay/generic/int[0]</property></not>
+		  <greater-than>
+		    <property>sim/multiplay/generic/float[9]</property>
+		    <value>31</value>
+		  </greater-than>
+		</condition>
+		
+		<emissive>false</emissive>
+		<lighting>false</lighting>
+		<align>billboard</align>
+		<attach>world</attach>
+		<placer>
+			<type>point</type>
+		</placer>
+		<shooter>
+			<theta-min-deg>-1</theta-min-deg>
+			<theta-max-deg>1</theta-max-deg>
+			<phi-min-deg>-90</phi-min-deg>
+			<phi-max-deg>90</phi-max-deg>
+			<speed-mps>
+			  <expression>
+			  <product>
+				<property>sim/multiplay/generic/float[9]</property>
+				<property>sim/multiplay/generic/float[3]</property>
+				<value>1.5</value>
+			  </product>
+			  </expression>
+				<spread>18</spread>
+			</speed-mps>
+			<rotation-speed>
+				<x-min-deg-sec>0</x-min-deg-sec>
+				<y-min-deg-sec>0</y-min-deg-sec>
+				<z-min-deg-sec>0</z-min-deg-sec>
+				<x-max-deg-sec>0</x-max-deg-sec>
+				<y-max-deg-sec>0</y-max-deg-sec>
+				<z-max-deg-sec>0</z-max-deg-sec>
+			</rotation-speed>
+		</shooter>
+		<counter>
+			<particles-per-sec>
+				<value>50</value>
+				<spread>6</spread>
+			</particles-per-sec>
+		</counter>
+		<particle>
+			<start>
+				<color>
+					<red><value>0.62</value></red>
+					<green><value>0.62</value></green>
+					<blue><value>0.62</value></blue>
+					<alpha><value>0.12</value></alpha>
+				</color>
+				<size>
+					<value>0.5</value>
+				</size>
+			</start>
+			<end>
+				<color>
+					<red><value>0.85</value></red>
+					<green><value>0.85</value></green>
+					<blue><value>0.85</value></blue>
+					<alpha><value>0.0</value></alpha>
+				</color>
+				<size>
+					<value>6</value>
+				</size>
+			</end>
+			<life-sec>
+				<value>7</value>
+			</life-sec>
+			<mass-kg>0.5</mass-kg>
+			<radius-m>0.01</radius-m>
+		</particle>
+		<program>
+			<fluid>air</fluid>
+			<gravity>false</gravity>
+			<wind>true</wind>
+		</program>
+	</particlesystem>
+</PropertyList>

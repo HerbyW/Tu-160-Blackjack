@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    ###################################################################################################
+    Antonov-Aircrafts and SpaceShuttle :: Herbert Wagner November2014-May2015
+    Development is ongoing, see latest version: www.github.com/HerbyW
+    This file is licenced under the terms of the GNU General Public Licence V3 or later
+    
+    Reverser, SpaceShuttle, Instrumentation and all Animations for gears, tail-gear-steering, flaps,
+    slats, spoilers, rudder, aelerion and lights for MP-modus with and without Rembrandt added.
+    ###################################################################################################
+-->
+
+<PropertyList>
+ <path>Aircraft/Tu-160-Blackjack/Models/Effects/ground/choke_left.ac</path>
+ 
+ <animation>
+  <type>scale</type>
+  <object-name>choke</object-name>
+  <property>sim/multiplay/generic/int[3]</property>
+  <offset>1</offset>
+  <x-max>1.10</x-max>
+  <y-max>1.75</y-max>
+  <z-max>1.55</z-max>
+  <x-factor>1.10</x-factor>
+  <y-factor>1.75</y-factor>
+  <z-factor>1.55</z-factor>
+ </animation>
+
+
+</PropertyList>

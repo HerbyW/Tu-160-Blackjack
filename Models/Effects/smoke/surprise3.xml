@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!--
+    #########################################################################################
+    Antonov-Aircrafts and SpaceShuttle :: Herbert Wagner November2014-June2015
+    Animations, FDM, Instrumentation, Rembrandt, ALS, Paratroopers, Cargo, Sounds
+    all with full Multiplayer Support.
+    Development is ongoing, see latest version: https://github.com/HerbyW?tab=repositories
+    This file is licenced under the terms of the GNU General Public Licence V3 or later
+    D-Leon: technical assistance
+    Firefly: 3D model improvment
+    Eagel: Liveries
+    Michat, Joe, Miguel, 3m, D-07007 and many others: testing and giving hints for impovements
+    Instruments from; Tu-154b, Il-76D, 707
+    ##########################################################################################
+-->
+<PropertyList>
+	<particlesystem>
+		<name>surprise-smoke</name>
+		<offsets>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+			<roll-deg>0</roll-deg>
+			<pitch-deg>0</pitch-deg>
+			<heading-deg>0</heading-deg>
+		</offsets>
+		<texture>surprisec.png</texture>
+		
+		<condition>
+		  <and>
+		  <greater-than>
+		    <property>sim/multiplay/generic/float[16]</property>
+		    <value>358</value>
+		  </greater-than>
+		  <less-than>
+		    <property>sim/multiplay/generic/float[16]</property>
+		    <value>370</value>
+		  </less-than>
+		  </and>
+		</condition>
+		
+		<emissive>false</emissive>
+		<lighting>false</lighting>
+		<align>billboard</align>
+		<attach>world</attach>
+		<placer>
+			<type>point</type>
+		</placer>
+		<shooter>
+			<theta-min-deg>0</theta-min-deg>
+			<theta-max-deg>0</theta-max-deg>
+			<phi-min-deg>0</phi-min-deg>
+			<phi-max-deg> 0</phi-max-deg>
+			<speed-mps>
+				<value>0</value>
+				<spread>0</spread>
+			</speed-mps>
+			<rotation-speed>
+				<x-min-deg-sec>0</x-min-deg-sec>
+				<y-min-deg-sec>0</y-min-deg-sec>
+				<z-min-deg-sec>0</z-min-deg-sec>
+				<x-max-deg-sec>0</x-max-deg-sec>
+				<y-max-deg-sec>0</y-max-deg-sec>
+				<z-max-deg-sec>0</z-max-deg-sec>
+			</rotation-speed>
+		</shooter>
+		<counter>
+			<particles-per-sec>
+				<value>1</value>
+				<spread>1</spread>
+			</particles-per-sec>
+		</counter>
+		<particle>
+			<start>
+				<color>
+					<red><value>1</value></red>
+					<green><value>1</value></green>
+					<blue><value>1</value></blue>
+					<alpha><value>0.02</value></alpha>
+				</color>
+				<size>
+					<value>2000</value>
+				</size>
+			</start>
+			<end>
+				<color>
+					<red><value>1</value></red>
+					<green><value>1</value></green>
+					<blue><value>1</value></blue>
+					<alpha><value>1</value></alpha>
+				</color>
+				<size>
+					<value>50000</value>
+				</size>
+			</end>
+			<life-sec>
+				<value>85</value>
+			</life-sec>
+			<mass-kg>350000</mass-kg>
+			<radius-m>80</radius-m>
+		</particle>
+		<program>
+			<fluid>air</fluid>
+			<gravity>true</gravity>
+			<wind>true</wind>
+		</program>
+	</particlesystem>
+</PropertyList>

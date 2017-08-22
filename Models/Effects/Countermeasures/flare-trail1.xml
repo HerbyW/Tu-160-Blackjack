@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+<particlesystem>
+  <name>flare-trail</name>
+  <offsets>
+   <x-m>0</x-m>
+   <y-m>0</y-m>
+   <z-m>0</z-m>
+   <pitch-deg>0</pitch-deg>
+   <roll-deg>0</roll-deg>
+   <heading-deg> 0 </heading-deg>
+  </offsets>
+  <texture>flare.png</texture>
+  <condition>     
+	<property>sim/multiplay/generic/int[1]</property>
+    </condition>
+  
+  <emissive>true</emissive>
+  <lighting>false</lighting>
+  
+  
+<align>billboard</align>
+  <attach>world</attach>
+
+  <placer>
+   <type>point</type>
+  </placer>
+  
+  <shooter>
+   <theta-min-deg>90</theta-min-deg>
+   <theta-max-deg>120</theta-max-deg>
+   <phi-min-deg>-120</phi-min-deg>
+   <phi-max-deg>-90</phi-max-deg>
+   <speed-mps>
+    <value>90</value>
+    <spread>5</spread>
+   </speed-mps>
+   <rotation-speed>
+    <x-min-deg-sec>0</x-min-deg-sec>
+    <y-min-deg-sec>0</y-min-deg-sec>
+    <z-min-deg-sec>0</z-min-deg-sec>
+    <x-max-deg-sec>0</x-max-deg-sec>
+    <y-max-deg-sec>0</y-max-deg-sec>
+    <z-max-deg-sec>0</z-max-deg-sec>
+   </rotation-speed>
+  </shooter>
+  
+  <counter>
+   <particles-per-sec>
+    <value>2</value>
+    <spread>0</spread>
+   </particles-per-sec>
+  </counter>
+  
+  
+  
+  <particle>
+   <start>
+    <color>
+     <red>
+      <value>1</value>
+     </red>
+     <green>
+      <value>0.9</value>
+     </green>
+     <blue>
+      <value>0.30</value>
+     </blue>
+     <alpha>
+      <value>0.9</value>
+     </alpha>
+    </color>
+    <size>
+     <value>0.35</value>
+    </size>
+   </start>
+   <end>
+    <color>
+     <red>
+      <value>1</value>
+     </red>
+     <green>
+      <value>0</value>
+     </green>
+     <blue>
+      <value>0</value>
+     </blue>
+     <alpha>
+      <value>0.1</value>
+     </alpha>
+    </color>
+    <size>
+     <value>18.95</value>
+    </size>
+   </end>
+   <life-sec>
+    <value>7</value>
+   </life-sec>
+   <mass-kg>1</mass-kg>
+   <radius-m>0.15</radius-m>
+  </particle>
+  
+  <program>
+			<fluid>air</fluid>
+			<gravity>true</gravity>
+			<wind>true</wind>
+		</program>
+  
+</particlesystem>
+
+</PropertyList>
+

@@ -1,0 +1,420 @@
+<?xml version="1.0"?>
+<!--###################################################################################
+Lake of Constance Hangar :: M.Kraus
+Boeing 707 for Flightgear Septemper 2013
+This file is licenced under the terms of the GNU General Public Licence V2 or later
+###################################################################################
+modified by Herbert Wagner 2016 for IL-76MD 
+-->
+
+<PropertyList>
+  
+  <path>TU-160-lights2.ac</path>
+  
+  <!-- Lamps-->
+
+  <animation>
+    <type>material</type>
+    <object-name>spot_glass1</object-name>
+    <object-name>spot_glass2</object-name>
+    <emission>
+      <factor-prop>sim/multiplay/generic/int[9]</factor-prop>
+      <red>   1 </red>
+      <green> 1 </green>
+      <blue>  1 </blue>
+    </emission>
+  </animation>
+ 
+  <animation>
+    <type>material</type>
+    <object-name>spot_glass-taxi1</object-name>
+    <object-name>spot_glass-taxi2</object-name>    
+    <emission>
+      <factor-prop>sim/multiplay/generic/int[10]</factor-prop>
+      <red>   1 </red>
+      <green> 1 </green>
+      <blue>  1 </blue>
+    </emission>
+  </animation>
+ 
+ <!-- landing lights in -->
+ 
+ <animation>
+    <type>rotate</type>
+    <object-name>landinglamp1</object-name>
+    <object-name>landinglamp2</object-name>
+    <object-name>spot_glass1</object-name>
+    <object-name>spot_glass2</object-name>      
+    <property>sim/multiplay/generic/int[19]</property>
+    <factor> 57 </factor>
+    <center>
+      <x-m> -21.246 </x-m>
+      <y-m> 0.0 </y-m>
+      <z-m> 3.548 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> -1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+ 
+ <!-- landing lights out -->
+
+  <animation>
+    <type>rotate</type>
+    <object-name>landinglamp1</object-name>
+    <object-name>landinglamp2</object-name>
+    <object-name>spot_glass1</object-name>
+    <object-name>spot_glass2</object-name>      
+    <property>sim/multiplay/generic/int[9]</property>
+    <factor> -57 </factor>
+    <center>
+      <x-m> -21.246 </x-m>
+      <y-m> 0.0 </y-m>
+      <z-m> 3.548 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> -1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+ 
+ <!-- taxi lights on gear movement -->
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>taxilamp1</object-name>
+    <object-name>taxilamp2</object-name>
+    <object-name>spot_glass-taxi1</object-name>
+    <object-name>spot_glass-taxi2</object-name>
+    <property>gear/gear[0]/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> -96 </dep></entry>
+      <entry><ind> 1 </ind><dep>   0 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> -19.531 </x-m>
+      <y-m>   0.089 </y-m>
+      <z-m>  3.756 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>translate</type>
+    <object-name>taxilamp1</object-name>
+    <object-name>taxilamp2</object-name>
+    <object-name>spot_glass-taxi1</object-name>
+    <object-name>spot_glass-taxi2</object-name>
+    <property>gear/gear[0]/compression-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 0.0 </dep></entry>
+      <entry><ind> 1 </ind><dep> 0.5 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation> 
+
+  <!-- No preview for fgrun-->
+  <animation>
+    <object-name>LightVolumeLL</object-name> 
+    <object-name>LightVolumeRL</object-name>
+    <object-name>LightVolumeLT</object-name> 
+    <object-name>LightVolumeRT</object-name>
+    <object-name>SpotLL</object-name> 
+    <object-name>SpotLT</object-name>
+    <object-name>Cone-textureTL</object-name>
+    <object-name>Cone-textureTR</object-name>
+    <object-name>Cone-textureLL</object-name>
+    <object-name>Cone-textureLR</object-name>
+    <nopreview/>
+  </animation>
+    
+    <!-- Special Shaders -->
+    
+    <animation>
+      <type>noshadow</type>      
+      <object-name>LightVolumeLL</object-name> 
+    <object-name>LightVolumeRL</object-name>
+    <object-name>LightVolumeLT</object-name> 
+    <object-name>LightVolumeRT</object-name>
+    <object-name>SpotLL</object-name> 
+    <object-name>SpotLT</object-name>
+    <object-name>Cone-textureTL</object-name>
+    <object-name>Cone-textureTR</object-name>
+    <object-name>Cone-textureLL</object-name>
+    <object-name>Cone-textureLR</object-name>
+    </animation>
+    
+    <!-- working for Rembrandt -->
+    <effect>
+      <inherits-from>Effects/model-transparent</inherits-from>
+      <object-name>SpotLL</object-name> 
+    <object-name>SpotLT</object-name>
+    <object-name>Cone-textureTL</object-name>
+    <object-name>Cone-textureTR</object-name>
+    <object-name>Cone-textureLL</object-name>
+    <object-name>Cone-textureLR</object-name>
+    </effect>
+    
+    <animation>
+      <type>select</type>
+      <object-name>SpotLL</object-name>
+      <condition>
+	<and>
+	  <not>
+	    <property>/sim/rendering/rembrandt/enabled</property>
+	  </not>
+	  <property>sim/multiplay/generic/int[9]</property>
+	  <less-than>
+	    <property>sim/multiplay/generic/float[5]</property>
+	    <value>5</value>
+	  </less-than>
+	  <greater-than>
+	    <property>sim/multiplay/generic/float[5]</property>
+	    <value>-0.1</value>
+	  </greater-than>
+	</and>
+      </condition>
+    </animation>
+    
+    <animation>
+      <type>select</type>
+      <object-name>SpotLT</object-name>
+      <condition>
+	<and>
+	  <not>
+	    <property>/sim/rendering/rembrandt/enabled</property>
+	  </not>
+	  <property>sim/multiplay/generic/int[10]</property>
+	  <less-than>
+	    <property>sim/multiplay/generic/float[5]</property>
+	    <value>5</value>
+	  </less-than>
+	  <greater-than>
+	    <property>sim/multiplay/generic/float[5]</property>
+	    <value>-0.1</value>
+	  </greater-than>
+	</and>
+      </condition>
+    </animation>
+    
+    <!-- Landing and Taxi Light fake cone -->
+    <animation>
+      <type>select</type>
+      <object-name>Cone-textureLL</object-name>
+      <object-name>Cone-textureLR</object-name>
+      <condition>
+	<and>
+	  <property>sim/multiplay/generic/int[9]</property>
+	  <greater-than>
+	    <property>sim/multiplay/generic/float[5]</property>
+	    <value>5</value>
+	  </greater-than>
+	</and>
+      </condition>
+    </animation>
+    
+    <animation>
+      <type>select</type>
+      <object-name>Cone-textureTL</object-name>
+      <object-name>Cone-textureTR</object-name>
+      <condition>
+	<and>
+	  <property>sim/multiplay/generic/int[10]</property>
+	  <greater-than>
+	    <property>sim/multiplay/generic/float[5]</property>
+	    <value>5</value>
+	  </greater-than>
+	</and>
+      </condition>
+    </animation>
+    
+    <!--  Rembrand Landing and Taxi light -->    
+    
+    <animation>
+      <type>select</type>
+      <object-name>LightVolumeLL</object-name> 
+    <object-name>LightVolumeRL</object-name>
+      <condition>
+	<and>
+	  <property>/sim/rendering/rembrandt/enabled</property>
+	    <property>sim/multiplay/generic/int[9]</property>
+	</and>
+      </condition>
+    </animation>
+    
+    <animation>
+      <type>select</type>
+    <object-name>LightVolumeLT</object-name> 
+    <object-name>LightVolumeRT</object-name>
+      <condition>
+	<and>
+	  <property>/sim/rendering/rembrandt/enabled</property>
+	    <property>sim/multiplay/generic/int[10]</property>
+	</and>
+      </condition>
+    </animation>
+    
+    <animation>
+      <type>light</type>
+      <light-type>spot</light-type>
+      <name>LandinglightL</name>
+      <object-name>LightVolumeLL</object-name> 
+      <position>
+	<x>-21.37</x>
+	<y> -0.06</y>
+	<z>3.426</z>
+      </position>
+      <direction>
+	<x>-2067</x>
+	<y>-100.06</y>
+	<z>-280.6</z>
+      </direction>
+      <diffuse>
+	<r>1.0</r>
+	<g>0.922</g>
+	<b>0.545</b>
+	<a>1.0</a>
+      </diffuse>
+      <specular>
+	<r>1.0</r>
+	<g>1.0</g>
+	<b>1.0</b>
+	<a>1.0</a>
+      </specular>
+      <attenuation>
+	<c>1.0</c>
+	<l>0.002</l>
+	<q>0.00005</q>
+      </attenuation>
+      <exponent>20</exponent>
+      <near-m>15.0</near-m>
+      <far-m>2050</far-m>
+      <cutoff>2000</cutoff>
+    </animation>
+    
+    <animation>
+      <type>light</type>
+      <light-type>spot</light-type>
+      <name>LandinglightR</name>
+      <object-name>LightVolumeRL</object-name>
+      <position>
+	<x>-21.37</x>
+	<y> 0.231</y>
+	<z>3.426</z>
+      </position>
+      <direction>
+	<x>-2067</x>
+	<y> 100.23</y>
+	<z>-280.6</z>
+      </direction>
+      <diffuse>
+	<r>1.0</r>
+	<g>0.922</g>
+	<b>0.545</b>
+	<a>1.0</a>
+      </diffuse>
+      <specular>
+	<r>1.0</r>
+	<g>1.0</g>
+	<b>1.0</b>
+	<a>1.0</a>
+      </specular>
+      <attenuation>
+	<c>1.0</c>
+	<l>0.002</l>
+	<q>0.00005</q>
+      </attenuation>
+      <exponent>20</exponent>
+      <near-m>15.0</near-m>
+      <far-m>2050</far-m>
+      <cutoff>2000</cutoff>
+    </animation>
+    
+    <animation>
+      <type>light</type>
+      <light-type>spot</light-type>
+      <name>TaxilightL</name>
+      <object-name>LightVolumeLT</object-name> 
+      <position>
+	<x>-19.174</x>
+	<y> -0.121</y>
+	<z>3.047</z>
+      </position>
+      <direction>
+	<x>-335.15</x>
+	<y> -60.121</y>
+	<z>-96.36</z>
+      </direction>
+      <diffuse>
+	<r>1.0</r>
+	<g>0.922</g>
+	<b>0.545</b>
+	<a>1.0</a>
+      </diffuse>
+      <specular>
+	<r>1.0</r>
+	<g>1.0</g>
+	<b>1.0</b>
+	<a>1.0</a>
+      </specular>
+      <attenuation>
+	<c>1.0</c>
+	<l>0.001</l>
+	<q>0.00015</q>
+      </attenuation>
+      <exponent>10</exponent>
+      <near-m>5.0</near-m>
+      <far-m>350</far-m>
+      <cutoff>300</cutoff>
+    </animation>
+    
+    <animation>
+      <type>light</type>
+      <light-type>spot</light-type>
+      <name>TaxilightR</name>
+      <object-name>LightVolumeRT</object-name>
+      <position>
+	<x>-19.174</x>
+	<y> 0.3</y>
+	<z>3.047</z>
+      </position>
+      <direction>
+	<x>-335.15</x>
+	<y> 60.3</y>
+	<z>-96.36</z>
+      </direction>
+      <diffuse>
+	<r>1.0</r>
+	<g>0.922</g>
+	<b>0.545</b>
+	<a>1.0</a>
+      </diffuse>
+      <specular>
+	<r>1.0</r>
+	<g>1.0</g>
+	<b>1.0</b>
+	<a>1.0</a>
+      </specular>
+      <attenuation>
+	<c>1.0</c>
+	<l>0.001</l>
+	<q>0.00015</q>
+      </attenuation>
+      <exponent>10</exponent>
+      <near-m>5.0</near-m>
+      <far-m>350</far-m>
+      <cutoff>300</cutoff>
+    </animation>
+    
+</PropertyList>

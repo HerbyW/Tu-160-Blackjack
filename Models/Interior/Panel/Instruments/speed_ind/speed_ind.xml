@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+    ###################################################################################################
+    Antonov-Aircrafts and SpaceShuttle :: Herbert Wagner November2014-May2015
+    Development is ongoing, see latest version: www.github.com/HerbyW
+    This file is licenced under the terms of the GNU General Public Licence V3 or later
+    
+    Reverser, SpaceShuttle, Instrumentation and all Animations for gears, tail-gear-steering, flaps,
+    slats, spoilers, rudder, aelerion and lights for MP-modus with and without Rembrandt added.
+    ###################################################################################################
+-->
+
+<PropertyList>
+ <path>speed_ind.ac</path>
+
+  <animation>
+     <object-name>kus</object-name>
+     <object-name>group</object-name>
+     <object-name>kus_rect2</object-name>
+     <object-name>kus_rect1</object-name>    
+  </animation>
+
+  <animation>
+    <type>material</type>
+     <object-name>kus</object-name>
+     <object-name>group</object-name>
+     <object-name>kus_rect2</object-name>
+     <object-name>kus_rect1</object-name>
+    <emission>
+      <factor-prop>controls/switches/gauge-light</factor-prop>
+      <red>   0.35 </red>
+      <green> 0.35 </green>
+      <blue>  0.35 </blue>
+    </emission>
+  </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>kus_rect1</object-name>
+   
+       <property>velocities/airspeed-kt</property>
+         
+   <interpolation>
+      <entry><ind>   0.00 </ind><dep>   6 </dep></entry>
+      <entry><ind> 100</ind><dep>  65</dep></entry>
+      <entry><ind> 405.00 </ind><dep> 354 </dep></entry>
+    </interpolation>
+  
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>kus_rect2</object-name>
+  <property>velocities/groundspeed-kt</property>
+  <interpolation>
+   <entry><ind>  0.0</ind><dep>  0</dep></entry>   
+   <entry><ind> 200</ind><dep>  7</dep></entry>   
+   <entry><ind> 594</ind><dep> 355</dep></entry>
+   
+
+  </interpolation>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+</PropertyList>
+

@@ -1,0 +1,115 @@
+<PropertyList>
+  
+  <particlesystem>
+    <!-- <type>trail</type>-->
+    <name>engine_afterburner_3</name>
+    <texture>puff.rgb</texture>
+    <emissive>true</emissive>
+    <lighting>false</lighting>
+    
+    <condition>
+      <and>
+	<not><property>sim/multiplay/generic/int[18]</property></not>
+	<greater-than>
+	  <property>sim/multiplay/generic/int[0]</property>
+	  <value>0</value>
+	</greater-than>
+	<greater-than>
+	  <property>engines/engine[2]/n2</property>
+	  <value>102.0</value>
+	</greater-than>
+      </and>
+    </condition>
+    
+    <attach>local</attach>
+    
+    <placer>
+      <type>point</type>
+      
+      </placer>
+      
+      <shooter>
+	<theta-min-deg>0</theta-min-deg>
+	<theta-max-deg>0</theta-max-deg>
+	<phi-min-deg>0</phi-min-deg>
+	<phi-max-deg>0</phi-max-deg>
+	<speed>
+	  <value>440</value>
+	  <spread>5</spread>
+	</speed>
+	<rotation-speed>
+	  <x-min-deg-sec>0</x-min-deg-sec>
+	  <y-min-deg-sec>0</y-min-deg-sec>
+	  <z-min-deg-sec>0</z-min-deg-sec>
+	  <x-max-deg-sec>50</x-max-deg-sec>
+	  <y-max-deg-sec>50</y-max-deg-sec>
+	  <z-max-deg-sec>50</z-max-deg-sec>
+	</rotation-speed>
+      </shooter>
+      
+      <counter>
+	<particles-per-sec>
+	  <value>22</value>
+	  <spread>0</spread>
+	</particles-per-sec>
+	
+	</counter>
+	
+	<align>billboard</align>
+	
+	<particle>
+	  <start>
+	    <color>
+	      <red>
+		<value>0.8</value>
+	      </red>
+	      <green>
+		<value>0.5</value>
+	      </green>
+	      <blue>
+		<value>0.12</value>
+	      </blue>
+	      <alpha>
+		<value>0.08</value>
+	      </alpha>
+	    </color>
+	    <size>
+	      <value>0.6</value>
+	    </size>
+	  </start>
+	  <end>
+	    <color>
+	      <red>
+		<value>0.8</value>
+	      </red>
+	      <green>
+		<value>0.5</value>
+	      </green>
+	      <blue>
+		<value>0.12</value>
+	      </blue>
+	      <alpha>
+		<value>0.003</value>
+	      </alpha>
+	    </color>
+	    <size>
+	      <value>10</value>
+	    </size>
+	  </end>
+	  
+	  <life-sec>
+	    <value>5.5</value>
+	  </life-sec>
+	  <mass-kg>5.0</mass-kg>
+	  <radius-m>0.01</radius-m>
+	</particle>
+	
+	<program>
+	  <fluid>air</fluid>
+	  <gravity type="bool">false</gravity>
+	  <wind type="bool">false</wind>
+	</program>
+	
+	</particlesystem>
+	
+	</PropertyList>

@@ -1,0 +1,2319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <path>TU-160-mitgears18.ac</path>
+  
+  <sound>
+      <path>Aircraft/Tu-160-Blackjack/Sounds/Tu-160-Blackjack-soundMP.xml</path>
+  </sound>
+  
+  <model>
+    <path>Aircraft/Tu-160-Blackjack/Models/Interior/Panel/panel.xml</path>
+    <offsets>
+      <x-m> -22.5 </x-m>
+      <y-m>   0.09 </y-m>
+      <z-m>  5.22 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Tu-160-Blackjack/Models/light/TU-160-lights2.xml</path>
+    <offsets>
+      <x-m> 0.0 </x-m>
+      <y-m> 0.0 </y-m>
+      <z-m> 0.0 </z-m>
+    </offsets>
+  </model>
+   
+<animation>
+    <object-name>Mesh.008</object-name>
+</animation>
+
+<animation>
+<type>noshadow</type>
+    <object-name>Mesh.008</object-name>
+</animation>
+
+<animation>
+    <type>material</type>
+       <object-name>Mesh.008</object-name>       
+       <emission>
+    <factor-prop>sim/multiplay/generic/int[5]</factor-prop>
+      <red>   0.005 </red>
+      <green> 0.05 </green>
+      <blue>  0.005 </blue>
+    </emission>
+</animation>
+  
+<animation>
+   <type>noshadow</type>
+    <object-name>Mesh.008</object-name>
+  </animation>
+
+  <!-- working for Rembrandt -->
+      
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <condition>
+      <property>/sim/rendering/rembrandt/enabled</property>
+    </condition>
+    <object-name>Mesh.008</object-name>
+  </effect>
+  
+  <animation>
+    <object-name>Mesh.008</object-name>
+</animation>  
+ 
+    <!--Internal Cabin lights for Rembrand, switch: bano-->
+ <model>
+  <path>Aircraft/Tu-160-Blackjack/Models/light/headlight-tiny.xml</path>
+  <name>tiny</name>
+   <condition>
+      <property>/sim/rendering/rembrandt/enabled</property>
+   </condition>
+  <offsets>
+      <x-m>-15.3</x-m>
+    <y-m>0.0</y-m>
+    <z-m>5.3</z-m>
+   <pitch-deg>90</pitch-deg>
+  </offsets>
+ </model>  
+
+  <animation>
+    <type>select</type>
+    <object-name>axeA1</object-name>
+    <object-name>axeA2</object-name>
+    <object-name>axeD1</object-name>
+    <object-name>axeD2</object-name>
+    <object-name>axeD3</object-name>    
+    <object-name>axeG1</object-name>
+    <object-name>axeG2</object-name>
+    <object-name>axeG3</object-name>    
+    <object-name>roueA</object-name>
+    <object-name>roueG1</object-name>
+    <object-name>roueG2</object-name>
+    <object-name>roueG3</object-name>    
+    <object-name>roueD1</object-name>
+    <object-name>roueD2</object-name>
+    <object-name>roueD3</object-name>
+    <condition>
+      <greater-than>
+        <property>gear/gear[0]/position-norm</property>
+        <value>0.1</value>
+      </greater-than>
+    </condition>
+  </animation>
+  
+    <!-- Rentré des roues -->
+  <animation>
+    <name>TrainAvant</name>
+    <object-name>axeA1</object-name>
+    <object-name>axeA2</object-name>
+    <object-name>roueA</object-name>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>TrainAvant</object-name>
+    <property>gear/gear[0]/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> -96 </dep></entry>
+      <entry><ind> 1 </ind><dep>   0 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> -19.531 </x-m>
+      <y-m>   0.089 </y-m>
+      <z-m>  3.756 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <name>TrainGauche</name>
+    <object-name>axeG2</object-name>
+    <object-name>roueG1</object-name>
+    <object-name>roueG2</object-name>
+    <object-name>roueG3</object-name>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>axeG1</object-name>
+    <object-name>axeG3</object-name>
+    <object-name>TrainGauche</object-name>
+    <property>gear/gear[0]/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 80 </dep></entry>
+      <entry><ind> 1 </ind><dep>    0 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> 3.95 </x-m>
+      <y-m> -2.586 </y-m>
+      <z-m> 4.861 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>axeG3</object-name>
+    <property>gear/gear[0]/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> -120 </dep></entry>
+      <entry><ind> 1 </ind><dep>  0 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> 3.412 </x-m>
+      <y-m> -2.586 </y-m>
+      <z-m> 2.592 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>TrainGauche</object-name>
+    <property>gear/gear[0]/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 105 </dep></entry>
+      <entry><ind> 1 </ind><dep>   0 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> 3.112 </x-m>
+      <y-m> -2.586 </y-m>
+      <z-m> 0.467 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <name>TrainDroit</name>
+    <object-name>axeD2</object-name>
+    <object-name>roueD1</object-name>
+    <object-name>roueD2</object-name>
+    <object-name>roueD3</object-name>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>axeD1</object-name>
+    <object-name>axeD3</object-name>
+    <object-name>TrainDroit</object-name>
+    <property>gear/gear[0]/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 80 </dep></entry>
+      <entry><ind> 1 </ind><dep>    0 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> 3.95 </x-m>
+      <y-m> 2.586 </y-m>
+      <z-m> 4.861 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>axeD3</object-name>
+    <property>gear/gear[0]/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> -120 </dep></entry>
+      <entry><ind> 1 </ind><dep>  0 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> 3.412 </x-m>
+      <y-m> 2.586 </y-m>
+      <z-m> 2.592 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>TrainDroit</object-name>
+    <property>gear/gear[0]/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 105 </dep></entry>
+      <entry><ind> 1 </ind><dep>   0 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> 3.112 </x-m>
+      <y-m> 2.586 </y-m>
+      <z-m> 0.467 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation> 
+
+    <!-- Compression -->
+    
+    <animation>
+    <name>RoueAvant</name>
+    <object-name>roueA</object-name>
+    <object-name>axeA1</object-name>
+    <object-name>axeA2</object-name>
+  </animation>
+  
+  <animation>
+    <type>translate</type>
+    <object-name>RoueAvant</object-name>
+    <property>gear/gear[0]/compression-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 0.0 </dep></entry>
+      <entry><ind> 1 </ind><dep> 0.5 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <name>TrainGauche</name>
+    <object-name>roueG1</object-name>
+    <object-name>roueG2</object-name>
+    <object-name>roueG3</object-name>
+    <object-name>axeG1</object-name>
+    <object-name>axeG2</object-name>
+    <object-name>axeG3</object-name>
+  </animation>
+    
+  <animation>
+    <type>translate</type>
+    <object-name>TrainGauche</object-name>
+    <property>gear/gear[2]/compression-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 0.0 </dep></entry>
+      <entry><ind> 1 </ind><dep> 0.5 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <name>TrainDroit</name>
+    <object-name>roueD1</object-name>
+    <object-name>roueD2</object-name>
+    <object-name>roueD3</object-name>
+    <object-name>axeD1</object-name>
+    <object-name>axeD2</object-name>
+    <object-name>axeD3</object-name>
+  </animation>
+    
+  <animation>
+    <type>translate</type>
+    <object-name>TrainDroit</object-name>
+    <property>sim/multiplay/generic/float[1]</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 0.0 </dep></entry>
+      <entry><ind> 1 </ind><dep> 0.5 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>  
+  
+  <!-- Rotation de la roue avant en fonction de la gouverne de direction -->  
+
+  <animation>
+    <type>rotate</type>
+    <object-name>roueA</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <factor> -45 </factor>
+    <center>
+      <x-m> -19.531 </x-m>
+      <y-m>   0.089 </y-m>
+      <z-m>  0.480 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z>-1 </z>
+    </axis>
+  </animation>
+
+  <!-- Rotation des roues lors du roulage -->
+  
+  <animation>
+    <type>spin</type>
+    <object-name>roueA</object-name>
+    <property>sim/multiplay/generic/float[2]</property>
+    <factor> 10 </factor>
+    <center>
+      <x-m> -19.531 </x-m>
+      <y-m>   0.089 </y-m>
+      <z-m>  0.480 </z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>roueG1</object-name>
+    <property>sim/multiplay/generic/float[2]</property>
+    <factor> 10 </factor>
+    <center>
+      <x-m> 2.011 </x-m>
+      <y-m> -2.586 </y-m>
+      <z-m> 0.448 </z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>roueG2</object-name>
+    <property>sim/multiplay/generic/float[2]</property>
+    <factor> 10 </factor>
+    <center>
+      <x-m> 3.112 </x-m>
+      <y-m> -2.586 </y-m>
+      <z-m> 0.467 </z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>roueG3</object-name>
+    <property>sim/multiplay/generic/float[2]</property>
+    <factor> 10 </factor>
+    <center>
+      <x-m> 4.176 </x-m>
+      <y-m> -2.586 </y-m>
+      <z-m> 0.514 </z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>roueD1</object-name>
+    <property>sim/multiplay/generic/float[2]</property>
+    <factor> 10 </factor>
+    <center>
+      <x-m> 2.011 </x-m>
+      <y-m> 2.586 </y-m>
+      <z-m> 0.448 </z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>roueD2</object-name>
+    <property>sim/multiplay/generic/float[2]</property>
+    <factor> 10 </factor>
+    <center>
+      <x-m> 3.112 </x-m>
+      <y-m> 2.586 </y-m>
+      <z-m> 0.467 </z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>roueD3</object-name>
+    <property>sim/multiplay/generic/float[2]</property>
+    <factor> 10 </factor>
+    <center>
+      <x-m> 4.176 </x-m>
+      <y-m> 2.586 </y-m>
+      <z-m> 0.514 </z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  
+  <!-- Lighting effects -->
+  <!-- Beacon: red-orange at top and bottom of fuselage -->
+  
+  <model>
+    <path>Aircraft/Tu-160-Blackjack/Models/light/beacon.xml</path>
+    <offsets>
+      <x-m> 20.354 </x-m>
+      <y-m>  0.072 </y-m>
+      <z-m> 13.475 </z-m>
+    </offsets>
+  </model>
+  <model>
+    <path>Aircraft/Tu-160-Blackjack/Models/light/beacon.xml</path>
+    <offsets>
+      <x-m> -2.317 </x-m>
+      <y-m>  0.081 </y-m>
+      <z-m>  3.651 </z-m>
+    </offsets>
+  </model>
+  
+  <animation>
+    <type>select</type>
+    <object-name>navlight-l</object-name>
+    <object-name>navlight-r</object-name>
+    <object-name>poslight-l</object-name>
+    <object-name>poslight-r</object-name>
+    <object-name>taillamp</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[8]</property>
+    </condition>
+  </animation>
+
+  <!--wing animation -->
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>Mesh.003</object-name>
+    <object-name>Mesh.002</object-name>
+    <object-name>flaps-left</object-name>
+    <object-name>aileron-left</object-name>
+    <object-name>slats-left</object-name>
+    <object-name>spoilers-left</object-name>
+    <object-name>navlight-l</object-name>    
+    <property>sim/multiplay/generic/float[14]</property>
+    <interpolation>
+      <entry><ind> 20    </ind><dep>   0 </dep></entry>
+      <entry><ind> 35  </ind><dep>  15 </dep></entry>      
+      <entry><ind> 65    </ind><dep>  46.5 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> -0.845 </x-m>
+      <y-m> -6.839 </y-m>
+      <z-m>  4.271 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>Mesh.005</object-name>
+    <object-name>Mesh.004</object-name>
+    <object-name>flaps-right</object-name>
+    <object-name>aileron-right</object-name>
+    <object-name>slats-right</object-name>
+    <object-name>spoilers-right</object-name>
+    <object-name>navlight-r</object-name>
+    <property>sim/multiplay/generic/float[14]</property>
+    <interpolation>
+      <entry><ind> 20    </ind><dep>   0 </dep></entry>
+      <entry><ind> 35  </ind><dep>  15 </dep></entry>      
+      <entry><ind> 65    </ind><dep>  45 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> -0.845 </x-m>
+      <y-m>  6.839 </y-m>
+      <z-m>  4.271 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> -1 </z>
+    </axis>
+  </animation>
+  
+  <!--wing animation -->
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>Mesh.002</object-name>
+    <property>sim/multiplay/generic/float[14]</property>
+    <interpolation>
+      <entry><ind> 20    </ind><dep>   0 </dep></entry>
+      <entry><ind> 35  </ind><dep>  30 </dep></entry>      
+      <entry><ind> 65    </ind><dep>  90 </dep></entry>
+    </interpolation>
+    <axis>
+      <x1-m> -0.152 </x1-m>
+      <y1-m> -7.117 </y1-m>
+      <z1-m> 4.674 </z1-m>
+      <x2-m> 3.662 </x2-m>
+      <y2-m> -11.016 </y2-m>
+      <z2-m> 4.271 </z2-m>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>Mesh.004</object-name>
+    <property>sim/multiplay/generic/float[14]</property>
+    <interpolation>
+      <entry><ind> 20    </ind><dep>   0 </dep></entry>
+      <entry><ind> 35  </ind><dep>  -30 </dep></entry>
+      <entry><ind> 65    </ind><dep>  -90 </dep></entry>
+    </interpolation>
+    <axis>
+      <x1-m> -0.152 </x1-m>
+      <y1-m> 7.117 </y1-m>
+      <z1-m> 4.674 </z1-m>
+      <x2-m> 3.662 </x2-m>
+      <y2-m> 11.016 </y2-m>
+      <z2-m> 4.271 </z2-m>
+    </axis>
+  </animation>
+  
+  <!--flaps animation -->
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>flaps-left</object-name>
+    <property>surface-positions/flap-pos-norm</property>
+    <interpolation>
+      <entry>
+	<ind>0.0</ind>
+	<dep>0.0</dep>
+      </entry>
+      <entry>
+	<ind>0.08</ind>
+	<dep>5.0</dep>
+      </entry>
+      <entry>
+	<ind>0.16</ind>
+	<dep>10.0</dep>
+      </entry>
+      <entry>
+	<ind>0.32</ind>
+	<dep>16.0</dep>
+      </entry>
+      <entry>
+	<ind>0.48</ind>
+	<dep>22.0</dep>
+      </entry>
+      <entry>
+	<ind>0.64</ind>
+	<dep>28.0</dep>
+      </entry>
+      <entry>
+	<ind>0.82</ind>
+	<dep>35.0</dep>
+      </entry>
+      <entry>
+	<ind>1.0</ind>
+	<dep>43.0</dep>
+      </entry>
+    </interpolation>
+    <axis>
+	  <x1-m> 4.856 </x1-m>
+	  <y1-m> -24.232 </y1-m>
+	  <z1-m>  4.391 </z1-m>
+	  <x2-m> 2.969 </x2-m>
+	  <y2-m> -12.534 </y2-m>
+	  <z2-m>  4.410 </z2-m>
+	</axis>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>flaps-right</object-name>
+    <property>surface-positions/flap-pos-norm</property>
+    <interpolation>
+      <entry>
+	<ind>0.0</ind>
+	<dep>0.0</dep>
+      </entry>
+      <entry>
+	<ind>0.08</ind>
+	<dep>-5.0</dep>
+      </entry>
+      <entry>
+	<ind>0.16</ind>
+	<dep>-10.0</dep>
+      </entry>
+      <entry>
+	<ind>0.32</ind>
+	<dep>-16.0</dep>
+      </entry>
+      <entry>
+	<ind>0.48</ind>
+	<dep>-22.0</dep>
+      </entry>
+      <entry>
+	<ind>0.64</ind>
+	<dep>-28.0</dep>
+      </entry>
+      <entry>
+	<ind>0.82</ind>
+	<dep>-35.0</dep>
+      </entry>
+      <entry>
+	<ind>1.0</ind>
+	<dep>-43.0</dep>
+      </entry>
+    </interpolation>
+    <axis>
+	  <x1-m> 4.875 </x1-m>
+	  <y1-m> 24.389 </y1-m>
+	  <z1-m>  4.393 </z1-m>
+	  <x2-m> 2.979 </x2-m>
+	  <y2-m> 12.692 </y2-m>
+	  <z2-m>  4.411 </z2-m>
+	</axis>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  
+  <!--spoiler animation -->
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>spoilers-left</object-name>
+    <property>controls/flight/spoilers</property>
+    <interpolation>
+      <entry>
+	<ind>0.0</ind>
+	<dep>0.0</dep>
+      </entry>      
+      <entry>
+	<ind>0.25</ind>
+	<dep>-15.0</dep>
+      </entry>
+      <entry>
+	<ind>0.5</ind>
+	<dep>-30.0</dep>
+      </entry>
+      <entry>
+	<ind>0.75</ind>
+	<dep>-45.0</dep>
+      </entry>
+      <entry>
+	<ind>1.0</ind>
+	<dep>-60.0</dep>
+      </entry>
+    </interpolation>
+    <axis>
+	  <x1-m> 4.992 </x1-m>
+	  <y1-m> -27.320 </y1-m>
+	  <z1-m>  4.371 </z1-m>
+	  <x2-m> 2.408 </x2-m>
+	  <y2-m> -11.961 </y2-m>
+	  <z2-m>  4.476 </z2-m>
+	</axis>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>spoilers-right</object-name>
+    <property>controls/flight/spoilers</property>
+    <interpolation>
+      <entry>
+	<ind>0.0</ind>
+	<dep>0.0</dep>
+      </entry>      
+      <entry>
+	<ind>0.25</ind>
+	<dep>15.0</dep>
+      </entry>
+      <entry>
+	<ind>0.5</ind>
+	<dep>30.0</dep>
+      </entry>
+      <entry>
+	<ind>0.75</ind>
+	<dep>45.0</dep>
+      </entry>
+      <entry>
+	<ind>1.0</ind>
+	<dep>60.0</dep>
+      </entry>
+    </interpolation>
+    <axis>
+	  <x1-m> 5.014 </x1-m>
+	  <y1-m> 27.477 </y1-m>
+	  <z1-m>  4.374 </z1-m>
+	  <x2-m> 2.417 </x2-m>
+	  <y2-m> 12.120 </y2-m>
+	  <z2-m>  4.477 </z2-m>
+	</axis>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  
+  <!--slats animation -->
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>slats-left</object-name>
+    <property>controls/flight/slats</property>
+    <interpolation>
+      <entry>
+	<ind>0.0</ind>
+	<dep>0.0</dep>
+      </entry>      
+      <entry>
+	<ind>0.25</ind>
+	<dep>-10.0</dep>
+      </entry>
+      <entry>
+	<ind>0.5</ind>
+	<dep>-20.0</dep>
+      </entry>
+      <entry>
+	<ind>0.75</ind>
+	<dep>-30.0</dep>
+      </entry>
+      <entry>
+	<ind>1.0</ind>
+	<dep>-40.0</dep>
+      </entry>
+    </interpolation>
+    <axis>
+	  <x1-m> 3.695 </x1-m>
+	  <y1-m> -26.865 </y1-m>
+	  <z1-m>  4.431 </z1-m>
+	  <x2-m> -1.931 </x2-m>
+	  <y2-m> -9.896 </y2-m>
+	  <z2-m>  4.612 </z2-m>
+	</axis>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>slats-right</object-name>
+    <property>controls/flight/slats</property>
+    <interpolation>
+      <entry>
+	<ind>0.0</ind>
+	<dep>0.0</dep>
+      </entry>      
+      <entry>
+	<ind>0.25</ind>
+	<dep>10.0</dep>
+      </entry>
+      <entry>
+	<ind>0.5</ind>
+	<dep>20.0</dep>
+      </entry>
+      <entry>
+	<ind>0.75</ind>
+	<dep>30.0</dep>
+      </entry>
+      <entry>
+	<ind>1.0</ind>
+	<dep>40.0</dep>
+      </entry>
+    </interpolation>
+    <axis>
+	  <x1-m> 3.716 </x1-m>
+	  <y1-m> 27.022 </y1-m>
+	  <z1-m>  4.433 </z1-m>
+	  <x2-m> -1.924 </x2-m>
+	  <y2-m> 10.058 </y2-m>
+	  <z2-m>  4.613 </z2-m>
+	</axis>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  
+  <!--aileron animation -->
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>aileron-left</object-name>
+    <property>surface-positions/left-aileron-pos-norm</property>
+    <interpolation>
+      <entry>
+	<ind>-1.0</ind>
+	<dep>-25.0</dep>
+      </entry>
+      <entry>
+	<ind>1.0</ind>
+	<dep>25.0</dep>
+      </entry>
+    </interpolation>
+    <axis>
+	  <x1-m> 5.425 </x1-m>
+	  <y1-m> -27.472 </y1-m>
+	  <z1-m>  4.352 </z1-m>
+	  <x2-m> 4.856 </x2-m>
+	  <y2-m> -24.232 </y2-m>
+	  <z2-m>  4.391 </z2-m>
+	</axis>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>aileron-right</object-name>
+    <property>surface-positions/right-aileron-pos-norm</property>
+    <interpolation>
+      <entry>
+	<ind>-1.0</ind>
+	<dep>25.0</dep>
+      </entry>
+      <entry>
+	<ind>1.0</ind>
+	<dep>-25.0</dep>
+      </entry>
+    </interpolation>
+    <axis>
+	  <x1-m> 5.447 </x1-m>
+	  <y1-m> 27.628 </y1-m>
+	  <z1-m>  4.354 </z1-m>
+	  <x2-m> 4.875 </x2-m>
+	  <y2-m> 24.389 </y2-m>
+	  <z2-m>  4.393 </z2-m>
+	</axis>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  
+  <!--weapons doors -->
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>Mesh.007</object-name>
+    <property>sim/multiplay/generic/float[7]</property>
+    <interpolation>
+      <entry><ind> 1 </ind><dep>  0 </dep></entry>      
+      <entry><ind> 0 </ind><dep>-73.5 </dep></entry>
+    </interpolation>
+    <axis>
+	  <x1-m> 11.091 </x1-m>
+	  <y1-m> -1.005 </y1-m>
+	  <z1-m>  3.715 </z1-m>
+	  <x2-m> -0.271 </x2-m>
+	  <y2-m> -1.001 </y2-m>
+	  <z2-m>  3.686 </z2-m>
+	</axis>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>Mesh.006</object-name>
+    <property>sim/multiplay/generic/float[7]</property>
+    <interpolation>
+      <entry><ind> 1 </ind><dep> 0 </dep></entry>      
+      <entry><ind> 0 </ind><dep> 73.5</dep></entry>
+    </interpolation>
+    <axis>
+	  <x1-m> 11.092 </x1-m>
+	  <y1-m>  1.157 </y1-m>
+	  <z1-m>  3.715 </z1-m>
+	  <x2-m> -0.270 </x2-m>
+	  <y2-m>  1.162 </y2-m>
+	  <z2-m>  3.686 </z2-m>
+	</axis>
+  </animation>
+  
+  <!--bomb dropping -->
+  
+  <animation>
+    <type>select</type>
+    <object-name>Bomb1cone</object-name>    
+    <condition>
+      <greater-than>
+        <property>sim/multiplay/generic/float[16]</property>
+        <value>18</value>
+      </greater-than>
+    </condition>
+  </animation>
+  
+  <animation>
+    <type>translate</type>
+    <object-name>Bomb1</object-name>
+    <object-name>Bomb1cone</object-name>
+    <property>sim/multiplay/generic/float[16]</property>
+    <factor>-1.7</factor>
+    <axis>
+      <x> 0.0</x>
+      <y> 0.0</y>
+      <z> 1.0</z>
+    </axis>
+    <center>
+      <x-m> 0.0</x-m>
+      <y-m> 0.0</y-m>
+      <z-m> 0.0</z-m>
+    </center>
+  </animation> 
+  
+  <animation>
+    <type>translate</type>
+    <object-name>Bomb1</object-name>
+    <object-name>Bomb1cone</object-name>
+    <property>sim/multiplay/generic/float[16]</property>
+    <factor>1</factor>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 0 </dep></entry>      
+      <entry><ind> 20 </ind><dep>0</dep></entry>      
+      <entry><ind> 260 </ind><dep>-7000</dep></entry>
+    </interpolation>
+    <axis>
+      <x> 0.0</x>
+      <y> 0.0</y>
+      <z> 1.0</z>
+    </axis>
+    <center>
+      <x-m> 0.0</x-m>
+      <y-m> 0.0</y-m>
+      <z-m>-0.0</z-m>
+    </center>
+  </animation>
+  
+  <animation>
+    <type>translate</type>
+    <object-name>Bomb1</object-name>
+    <object-name>Bomb1cone</object-name>
+    <property>sim/multiplay/generic/float[16]</property>
+    <factor>1</factor>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 0 </dep></entry>      
+      <entry><ind> 20 </ind><dep> 0</dep></entry>      
+      <entry><ind> 160 </ind><dep>10000</dep></entry>
+      <entry><ind> 260 </ind><dep>25000</dep></entry>
+    </interpolation>
+    <axis>
+      <x> -1.0</x>
+      <y> 0.0</y>
+      <z> 0.0</z>
+    </axis>
+    <center>
+      <x-m> 0.0</x-m>
+      <y-m> 0.0</y-m>
+      <z-m>-0.0</z-m>
+    </center>
+  </animation>
+  
+  <animation>
+    <type>translate</type>
+    <object-name>Bomb1</object-name>
+    <object-name>Bomb1cone</object-name>
+    <property>sim/multiplay/generic/float[16]</property>
+    <factor>1</factor>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 0 </dep></entry>      
+      <entry><ind> 20 </ind><dep> 0</dep></entry>
+      <entry><ind> 80 </ind><dep> 150</dep></entry>      
+      <entry><ind> 140 </ind><dep>-200</dep></entry>
+      <entry><ind> 260 </ind><dep>2000</dep></entry>
+    </interpolation>
+    <axis>
+      <x> 0.0</x>
+      <y> 1.0</y>
+      <z> 0.0</z>
+    </axis>
+    <center>
+      <x-m> 0.0</x-m>
+      <y-m> 0.0</y-m>
+      <z-m>-0.0</z-m>
+    </center>
+  </animation>
+  
+  <!--parachute doors -->
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>para-l</object-name>
+    <property>sim/multiplay/generic/float[15]</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep>  0 </dep></entry>      
+      <entry><ind> 1 </ind><dep>95 </dep></entry>
+    </interpolation>
+    <axis>
+	  <x1-m> 22.216 </x1-m>
+	  <y1-m> -0.340 </y1-m>
+	  <z1-m>  5.057 </z1-m>
+	  <x2-m> 21.267 </x2-m>
+	  <y2-m> -0.427 </y2-m>
+	  <z2-m>  4.904 </z2-m>
+	</axis>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>para-r</object-name>
+    <property>sim/multiplay/generic/float[15]</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 0 </dep></entry>      
+      <entry><ind> 1 </ind><dep>-95</dep></entry>
+    </interpolation>
+    <axis>
+	  <x1-m> 22.220 </x1-m>
+	  <y1-m>  0.483 </y1-m>
+	  <z1-m>  5.058 </z1-m>
+	  <x2-m> 21.267 </x2-m>
+	  <y2-m>  0.571 </y2-m>
+	  <z2-m>  4.904 </z2-m>
+	</axis>
+  </animation>
+  
+  <!--flares doors -->
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>flares-door</object-name>
+    <property>sim/multiplay/generic/int[1]</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep>  0 </dep></entry>      
+      <entry><ind> 1 </ind><dep>35 </dep></entry>
+    </interpolation>
+    <axis>
+	  <x1-m> 22.704 </x1-m>
+	  <y1-m> -0.236 </y1-m>
+	  <z1-m>  5.124 </z1-m>
+	  <x2-m> 22.704 </x2-m>
+	  <y2-m>  0.399 </y2-m>
+	  <z2-m>  5.129 </z2-m>
+	</axis>
+  </animation>
+  
+  <model>
+	<path>Aircraft/Tu-160-Blackjack/Models/Effects/Countermeasures/flare-trail1.xml</path>
+	<offsets>
+	  <x-m> 23.1 </x-m>
+	  <y-m> -0.20 </y-m>
+	  <z-m> 4.92 </z-m>	  
+	</offsets>
+      </model>
+      <model>
+	<path>Aircraft/Tu-160-Blackjack/Models/Effects/Countermeasures/flare-trail2.xml</path>
+	<offsets>
+	  <x-m> 23.1 </x-m>
+	  <y-m> 0.36 </y-m>
+	  <z-m> 4.92 </z-m>	  
+	</offsets>
+      </model>
+  
+  <!--refil door and tube -->
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>refil-door</object-name>    
+    <property>sim/multiplay/generic/float[17]</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep>  0 </dep></entry>
+      <entry><ind> 0.8 </ind><dep>-11 </dep></entry>      
+      <entry><ind> 1 </ind><dep>-11 </dep></entry>
+    </interpolation>
+    <axis>
+	  <x1-m> -23.749 </x1-m>
+	  <y1-m>  0.255 </y1-m>
+	  <z1-m>  5.368 </z1-m>
+	  <x2-m> -23.749 </x2-m>
+	  <y2-m> -0.07553 </y2-m>
+	  <z2-m>  5.368 </z2-m>
+	</axis>
+  </animation>
+  
+  <animation>
+    <type>translate</type>
+    <object-name>refil-extend</object-name>
+    <property>sim/multiplay/generic/float[17]</property>
+    <factor>1</factor>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> -2.5 </dep></entry>            
+      <entry><ind> 0.8 </ind><dep>-2.5</dep></entry>
+      <entry><ind> 1 </ind><dep>0.5</dep></entry>
+    </interpolation>
+    <axis>
+	  <x1-m> -28.375 </x1-m>
+	  <y1-m>  0.09068 </y1-m>
+	  <z1-m>  5.173 </z1-m>
+	  <x2-m> -28.977 </x2-m>
+	  <y2-m>  0.09068 </y2-m>
+	  <z2-m>  5.173 </z2-m>
+	</axis>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>    
+    <object-name>refil-tube</object-name>
+    <property>sim/multiplay/generic/float[17]</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep>11 </dep></entry>
+      <entry><ind> 0.8 </ind><dep> 0 </dep></entry>      
+      <entry><ind> 1 </ind><dep> 0 </dep></entry>
+    </interpolation>
+    <axis>
+	  <x1-m> -23.749 </x1-m>
+	  <y1-m>  0.255 </y1-m>
+	  <z1-m>  5.368 </z1-m>
+	  <x2-m> -23.749 </x2-m>
+	  <y2-m> -0.07553 </y2-m>
+	  <z2-m>  5.368 </z2-m>
+	</axis>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>    
+    <object-name>refil-extend</object-name>
+    <property>sim/multiplay/generic/float[17]</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep>6 </dep></entry>
+      <entry><ind> 0.3 </ind><dep> 3.2 </dep></entry>
+      <entry><ind> 0.4 </ind><dep> 2.5 </dep></entry>
+      <entry><ind> 0.6 </ind><dep> 1.0 </dep></entry>
+      <entry><ind> 0.8 </ind><dep> 0 </dep></entry> 
+      <entry><ind> 1 </ind><dep> 0 </dep></entry>
+    </interpolation>
+    <axis>
+	  <x1-m> -23.749 </x1-m>
+	  <y1-m>  0.255 </y1-m>
+	  <z1-m>  5.368 </z1-m>
+	  <x2-m> -23.749 </x2-m>
+	  <y2-m> -0.07553 </y2-m>
+	  <z2-m>  5.368 </z2-m>
+	</axis>
+  </animation>
+  
+  <!--rudder -->
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>Mesh.011</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <factor> -8 </factor>
+    <center>
+      <x-m> 17.288 </x-m>
+      <y-m> 0.0735 </y-m>
+      <z-m> 8.703 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+  
+  <!--taileron-left -->
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>Mesh.010</object-name>
+    <property>surface-positions/left-aileron-pos-norm</property>
+    <factor> -5 </factor>
+    <center>
+      <x-m> 18.627 </x-m>
+      <y-m> -0.361 </y-m>
+      <z-m> 8.2525 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> -1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>Mesh.010</object-name>
+    <property>surface-positions/elevator-pos-norm</property>
+    <factor> -8 </factor>
+    <center>
+      <x-m> 18.627 </x-m>
+      <y-m> -0.361 </y-m>
+      <z-m> 8.2525 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> -1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <!--taileron-right -->
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>Mesh.009</object-name>
+    <property>surface-positions/right-aileron-pos-norm</property>
+    <factor> 5 </factor>
+    <center>
+      <x-m> 18.627 </x-m>
+      <y-m> 0.507 </y-m>
+      <z-m> 8.2525 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>Mesh.009</object-name>
+    <property>surface-positions/elevator-pos-norm</property>
+    <factor> 8 </factor>
+    <center>
+      <x-m> 18.627 </x-m>
+      <y-m> 0.507 </y-m>
+      <z-m> 8.2525 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+    
+    <!--engines yellow -->
+    
+    <animation>
+      <type>noshadow</type>
+      <object-name>eng_left_ex.002</object-name>
+      <object-name>eng_left_ex.003</object-name>
+      <object-name>eng_right_ex.002</object-name>
+      <object-name>eng_right_ex.003</object-name>
+    </animation>
+    
+    <animation>
+      <type>material</type>
+      <object-name>eng_left_ex.002</object-name>
+      <emission>
+	<factor-prop>sim/multiplay/generic/float[10]</factor-prop>
+	<offset>-1.25</offset>
+	<red>   0.0218 </red>
+	<green> 0.0218 </green>
+	<blue>  0.0218 </blue>
+      </emission>
+    </animation>
+    
+    <animation>
+      <type>material</type>
+      <object-name>eng_left_ex.003</object-name>
+      <emission>
+	<factor-prop>sim/multiplay/generic/float[9]</factor-prop>
+	<offset>-1.25</offset>
+	<red>   0.0218 </red>
+	<green> 0.0218 </green>
+	<blue>  0.0218 </blue>
+      </emission>
+    </animation>
+    
+    <animation>
+      <type>material</type>
+      <object-name>eng_right_ex.002</object-name>
+      <emission>
+	<factor-prop>sim/multiplay/generic/float[12]</factor-prop>
+	<offset>-1.25</offset>
+	<red>   0.0218 </red>
+	<green> 0.0218 </green>
+	<blue>  0.0218 </blue>
+      </emission>
+    </animation>
+    
+    <animation>
+      <type>material</type>
+      <object-name>eng_right_ex.003</object-name>
+      <emission>
+	<factor-prop>sim/multiplay/generic/float[11]</factor-prop>
+	<offset>-1.25</offset>
+	<red>   0.0218 </red>
+	<green> 0.0218 </green>
+	<blue>  0.0218 </blue>
+      </emission>
+    </animation>
+    
+    <animation>
+      <type>select</type>
+      <object-name>eng_left_ex.002</object-name>
+      <condition>
+	<greater-than>
+	  <property>sim/multiplay/generic/float[10]</property>
+	  <value>50</value>
+	</greater-than>
+      </condition>
+    </animation>
+    
+    <animation>
+      <type>select</type>
+      <object-name>eng_left_ex.003</object-name>
+      <condition>
+	<greater-than>
+	  <property>sim/multiplay/generic/float[9]</property>
+	  <value>50</value>
+	</greater-than>
+      </condition>
+    </animation>
+    
+    <animation>
+      <type>select</type>
+      <object-name>eng_right_ex.002</object-name>
+      <condition>
+	<greater-than>
+	  <property>sim/multiplay/generic/float[12]</property>
+	  <value>50</value>
+	</greater-than>
+      </condition>
+    </animation>
+    
+    <animation>
+      <type>select</type>
+      <object-name>eng_right_ex.003</object-name>
+      <condition>
+	<greater-than>
+	  <property>sim/multiplay/generic/float[11]</property>
+	  <value>50</value>
+	</greater-than>
+      </condition>
+    </animation>
+    
+    <!-- engine turbines -->
+    
+    <animation>
+      <type>spin</type>
+      <object-name>turbine_1.001</object-name>
+      <property>sim/multiplay/generic/float[9]</property>
+      <interpolation>
+	<entry>
+	  <ind>0.0</ind>
+	  <dep>0</dep>
+	</entry>
+	<entry>
+	  <ind>52.0</ind>
+	  <dep>-5</dep>
+	</entry>
+	<entry>
+	  <ind>78.0</ind>
+	  <dep>-10.0</dep>
+	</entry>
+	<entry>
+	  <ind>100.0</ind>
+	  <dep>-50.0</dep>
+	</entry>
+      </interpolation>
+      <center>
+	<x-m>7.664</x-m>
+	<y-m>-5.612</y-m>
+	<z-m>3.450</z-m>
+      </center>
+      <axis>
+	<x>1</x>
+	<y>0</y>
+	<z>0</z>
+      </axis>
+    </animation>
+    
+    <animation>
+      <type>spin</type>
+      <object-name>turbine_2.001</object-name>
+      <property>sim/multiplay/generic/float[10]</property>
+      <interpolation>
+	<entry>
+	  <ind>0.0</ind>
+	  <dep>0</dep>
+	</entry>
+	<entry>
+	  <ind>52.0</ind>
+	  <dep>-5</dep>
+	</entry>
+	<entry>
+	  <ind>78.0</ind>
+	  <dep>-10.0</dep>
+	</entry>
+	<entry>
+	  <ind>100.0</ind>
+	  <dep>-50.0</dep>
+	</entry>
+      </interpolation>
+      <center>
+	<x-m>7.703</x-m>
+	<y-m>-3.727</y-m>
+	<z-m>3.401</z-m>
+      </center>
+      <axis>
+	<x>1</x>
+	<y>0</y>
+	<z>0</z>
+      </axis>
+    </animation>
+    
+    <animation>
+      <type>spin</type>
+      <object-name>turbine_3.001</object-name>
+      <property>sim/multiplay/generic/float[11]</property>
+      <interpolation>
+	<entry>
+	  <ind>0.0</ind>
+	  <dep>0</dep>
+	</entry>
+	<entry>
+	  <ind>52.0</ind>
+	  <dep>-5</dep>
+	</entry>
+	<entry>
+	  <ind>78.0</ind>
+	  <dep>-10.0</dep>
+	</entry>
+	<entry>
+	  <ind>100.0</ind>
+	  <dep>-50.0</dep>
+	</entry>
+      </interpolation>
+      <center>
+	<x-m>7.706</x-m>
+	<y-m>3.882</y-m>
+	<z-m>3.401</z-m>
+      </center>
+      <axis>
+	<x>1</x>
+	<y>0</y>
+	<z>0</z>
+      </axis>
+    </animation>
+    
+    <animation>
+      <type>spin</type>
+      <object-name>turbine_4.001</object-name>
+      <property>sim/multiplay/generic/float[12]</property>
+      <interpolation>
+	<entry>
+	  <ind>0.0</ind>
+	  <dep>0</dep>
+	</entry>
+	<entry>
+	  <ind>52.0</ind>
+	  <dep>-5</dep>
+	</entry>
+	<entry>
+	  <ind>78.0</ind>
+	  <dep>-10.0</dep>
+	</entry>
+	<entry>
+	  <ind>100.0</ind>
+	  <dep>-50.0</dep>
+	</entry>
+      </interpolation>
+      <center>
+	<x-m>7.689</x-m>
+	<y-m>5.766</y-m>
+	<z-m>3.451</z-m>
+      </center>
+      <axis>
+	<x>1</x>
+	<y>0</y>
+	<z>0</z>
+      </axis>
+    </animation>
+    
+ <!-- gear smoke -->
+
+<model>
+  <name>gear_smoke_front</name>
+  <path>Aircraft/Tu-160-Blackjack/Models/Effects/ground/ground0.xml</path>
+  <offsets>
+    <x-m>-19.0</x-m>
+    <y-m>0</y-m>
+    <z-m>0</z-m>
+    <heading-deg>0</heading-deg>
+    <roll-deg>    0 </roll-deg>
+    <pitch-deg>   0 </pitch-deg>
+  </offsets>
+</model> 
+ 
+<model>
+  <name>gear_smoke_right</name>
+  <path>Aircraft/Tu-160-Blackjack/Models/Effects/ground/ground1.xml</path>
+  <offsets>
+    <x-m>4.77</x-m>
+    <y-m>-2.45</y-m>
+    <z-m>0</z-m>
+    <heading-deg>0</heading-deg>
+    <roll-deg>    0 </roll-deg>
+    <pitch-deg>   0 </pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>gear_smoke_left</name>
+  <path>Aircraft/Tu-160-Blackjack/Models/Effects/ground/ground2.xml</path>
+  <offsets>
+    <x-m>4.77</x-m>
+    <y-m>2.45</y-m>
+    <z-m>0</z-m>
+    <heading-deg>0</heading-deg>
+    <roll-deg>    0 </roll-deg>
+    <pitch-deg>   0 </pitch-deg>
+  </offsets>
+</model>
+
+<!-- smoke system for engine blast-->
+
+<model>
+  <name>engineblast1</name>
+  <path>Aircraft/Tu-160-Blackjack/Models/Effects/engines/engblast1.xml</path>
+  <offsets>
+    <x-m>9.664</x-m>
+    <y-m>-5.612</y-m>
+    <z-m>3.450</z-m>
+    <pitch-deg>90</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>engineblast2</name>
+  <path>Aircraft/Tu-160-Blackjack/Models/Effects/engines/engblast2.xml</path>
+  <offsets>
+    <x-m>9.703</x-m>
+    <y-m>-3.727</y-m>
+    <z-m>3.401</z-m>
+    <pitch-deg>90</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>engineblast3</name>
+  <path>Aircraft/Tu-160-Blackjack/Models/Effects/engines/engblast3.xml</path>
+  <offsets>
+    <x-m>9.706</x-m>
+    <y-m>3.882</y-m>
+    <z-m>3.401</z-m>
+    <pitch-deg>90</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>engineblast4</name>
+  <path>Aircraft/Tu-160-Blackjack/Models/Effects/engines/engblast4.xml</path>
+  <offsets>
+    <x-m>9.689</x-m>
+    <y-m>5.766</y-m>
+    <z-m>3.451</z-m>
+    <pitch-deg>90</pitch-deg>
+  </offsets>
+</model>
+
+<!-- smoke system for engine afterburner-->
+
+<model>
+  <name>afterburner1</name>
+  <path>Aircraft/Tu-160-Blackjack/Models/Effects/engines/afterburner1.xml</path>
+  <offsets>
+    <x-m>9.664</x-m>
+    <y-m>-5.612</y-m>
+    <z-m>3.450</z-m>
+    <pitch-deg>90</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>afterburner2</name>
+  <path>Aircraft/Tu-160-Blackjack/Models/Effects/engines/afterburner2.xml</path>
+  <offsets>
+    <x-m>9.703</x-m>
+    <y-m>-3.727</y-m>
+    <z-m>3.401</z-m>
+    <pitch-deg>90</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>afterburner3</name>
+  <path>Aircraft/Tu-160-Blackjack/Models/Effects/engines/afterburner3.xml</path>
+  <offsets>
+    <x-m>9.706</x-m>
+    <y-m>3.882</y-m>
+    <z-m>3.401</z-m>
+    <pitch-deg>90</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>afterburner4</name>
+  <path>Aircraft/Tu-160-Blackjack/Models/Effects/engines/afterburner4.xml</path>
+  <offsets>
+    <x-m>9.689</x-m>
+    <y-m>5.766</y-m>
+    <z-m>3.451</z-m>
+    <pitch-deg>90</pitch-deg>
+  </offsets>
+</model>
+
+<!-- 2nd smoke system for engines with afterburner-->
+
+<model>
+  <name>afterburner1b</name>
+  <path>Aircraft/Tu-160-Blackjack/Models/Effects/smoke/smoke_1.xml</path>
+  <offsets>
+    <x-m>25.664</x-m>
+    <y-m>-5.612</y-m>
+    <z-m>3.450</z-m>
+    <pitch-deg>90</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>afterburner2b</name>
+  <path>Aircraft/Tu-160-Blackjack/Models/Effects/smoke/smoke_2.xml</path>
+  <offsets>
+    <x-m>25.703</x-m>
+    <y-m>-3.727</y-m>
+    <z-m>3.401</z-m>
+    <pitch-deg>90</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>afterburner3b</name>
+  <path>Aircraft/Tu-160-Blackjack/Models/Effects/smoke/smoke_3.xml</path>
+  <offsets>
+    <x-m>25.706</x-m>
+    <y-m>3.882</y-m>
+    <z-m>3.401</z-m>
+    <pitch-deg>90</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>afterburner4b</name>
+  <path>Aircraft/Tu-160-Blackjack/Models/Effects/smoke/smoke_4.xml</path>
+  <offsets>
+    <x-m>25.689</x-m>
+    <y-m>5.766</y-m>
+    <z-m>3.451</z-m>
+    <pitch-deg>90</pitch-deg>
+  </offsets>
+</model>
+
+<!-- smoke system for engines normal and reverse-->
+
+<model>
+  <name>sm1</name>
+  <path>Aircraft/Tu-160-Blackjack/Models/Effects/smoke/smoke_1n.xml</path>
+  <offsets>
+    <x-m>10.664</x-m>
+    <y-m>-5.612</y-m>
+    <z-m>3.450</z-m>
+    <pitch-deg>90</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>sm2</name>
+  <path>Aircraft/Tu-160-Blackjack/Models/Effects/smoke/smoke_2n.xml</path>
+  <offsets>
+    <x-m>10.703</x-m>
+    <y-m>-3.727</y-m>
+    <z-m>3.401</z-m>
+    <pitch-deg>90</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>sm3</name>
+  <path>Aircraft/Tu-160-Blackjack/Models/Effects/smoke/smoke_3n.xml</path>
+  <offsets>
+    <x-m>10.706</x-m>
+    <y-m>3.882</y-m>
+    <z-m>3.401</z-m>
+    <pitch-deg>90</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>sm4</name>
+  <path>Aircraft/Tu-160-Blackjack/Models/Effects/smoke/smoke_4n.xml</path>
+  <offsets>
+    <x-m>10.689</x-m>
+    <y-m>5.766</y-m>
+    <z-m>3.451</z-m>
+    <pitch-deg>90</pitch-deg>
+  </offsets>
+</model>
+
+<!-- trail system for engines-->
+
+<model>
+  <name>trail1</name>
+  <path>Aircraft/Tu-160-Blackjack/Models/Effects/trail/trail1.xml</path>
+  <offsets>
+    <x-m>75.664</x-m>
+    <y-m>-5.612</y-m>
+    <z-m>3.450</z-m>
+    <pitch-deg>90</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>trail2</name>
+  <path>Aircraft/Tu-160-Blackjack/Models/Effects/trail/trail2.xml</path>
+  <offsets>
+    <x-m>75.703</x-m>
+    <y-m>-3.727</y-m>
+    <z-m>3.401</z-m>
+    <pitch-deg>90</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>trail3</name>
+  <path>Aircraft/Tu-160-Blackjack/Models/Effects/trail/trail3.xml</path>
+  <offsets>
+    <x-m>75.706</x-m>
+    <y-m>3.882</y-m>
+    <z-m>3.401</z-m>
+    <pitch-deg>90</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>trail4</name>
+  <path>Aircraft/Tu-160-Blackjack/Models/Effects/trail/trail4.xml</path>
+  <offsets>
+    <x-m>75.689</x-m>
+    <y-m>5.766</y-m>
+    <z-m>3.451</z-m>
+    <pitch-deg>90</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>sonicboom</name>
+  <path>Aircraft/Tu-160-Blackjack/Models/Effects/boom/fx.xml</path>
+  <offsets>
+    <x-m>-5</x-m>
+    <y-m>0</y-m>
+    <z-m>5</z-m>
+    <pitch-deg>0</pitch-deg>
+  </offsets>
+</model>
+ 
+ <!-- Start Parachutes -->
+ 
+ <model>
+   <name>Parachute1</name>
+   <path>Aircraft/Tu-160-Blackjack/Models/Effects/Parachutes/Parachute160b.ac</path>
+   <condition>
+     <greater-than>
+       <property>sim/multiplay/generic/float[18]</property>
+       <value>0.03</value>
+     </greater-than>
+   </condition>
+   <offsets>
+     <x-m>24.92</x-m>
+     <y-m>0.07</y-m>
+     <z-m>5.49</z-m>
+   </offsets>   
+ </model>
+ 
+ <model>
+   <name>Parachute2</name>
+   <path>Aircraft/Tu-160-Blackjack/Models/Effects/Parachutes/Parachute160b.ac</path>
+   <condition>
+     <greater-than>
+       <property>sim/multiplay/generic/float[18]</property>
+       <value>0.03</value>
+     </greater-than>
+   </condition>
+   <offsets>
+     <x-m>24.92</x-m>
+     <y-m>0.07</y-m>
+     <z-m>5.49</z-m>
+   </offsets>     
+ </model>
+ 
+ <model>
+   <name>Parachute3</name>
+   <path>Aircraft/Tu-160-Blackjack/Models/Effects/Parachutes/Parachute160b.ac</path>
+   <condition>
+     <greater-than>
+       <property>sim/multiplay/generic/float[18]</property>
+       <value>0.03</value>
+     </greater-than>
+   </condition>
+   <offsets>
+     <x-m>24.92</x-m>
+     <y-m>0.07</y-m>
+     <z-m>5.49</z-m>
+   </offsets>       
+ </model>
+ 
+ <!-- Scale out  -->
+ 
+ <animation>
+   <type>scale</type>
+   <object-name>Parachute1</object-name>
+   <property>sim/multiplay/generic/float[15]</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>0.0</dep></entry>
+     <entry><ind>0.39</ind><dep>0.0</dep></entry>
+     <entry><ind>0.4</ind><dep>0.02</dep></entry>
+     <entry><ind>0.5</ind><dep>0.70</dep></entry>
+   </interpolation>
+   <center>
+     <x-m>24.92</x-m>
+     <y-m>0.07</y-m>
+     <z-m>5.49</z-m>
+   </center>
+ </animation>
+ 
+ <animation>
+   <type>scale</type>
+   <object-name>Parachute2</object-name>
+   <property>sim/multiplay/generic/float[15]</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>0.0</dep></entry>
+     <entry><ind>0.59</ind><dep>0.0</dep></entry>
+     <entry><ind>0.6</ind><dep>0.02</dep></entry>
+     <entry><ind>0.7</ind><dep>0.70</dep></entry>
+   </interpolation>
+   <center>
+     <x-m>24.92</x-m>
+     <y-m>0.07</y-m>
+     <z-m>5.49</z-m>
+   </center>
+ </animation>
+ 
+ <animation>
+   <type>scale</type>
+   <object-name>Parachute3</object-name>
+   <property>sim/multiplay/generic/float[15]</property>
+   <interpolation>
+     <entry><ind>0.0</ind><dep>0.0</dep></entry>
+     <entry><ind>0.79</ind><dep>0.0</dep></entry>
+     <entry><ind>0.8</ind><dep>0.02</dep></entry>
+     <entry><ind>0.9</ind><dep>0.70</dep></entry>
+   </interpolation>
+   <center>
+     <x-m>24.92</x-m>
+     <y-m>0.07</y-m>
+     <z-m>5.49</z-m>
+   </center>
+ </animation>
+ 
+ <!-- side movement -->
+ 
+ <animation>
+   <type>rotate</type>
+   <object-name>Parachute1</object-name>
+   <property>sim/multiplay/generic/float[15]</property>
+   <interpolation>
+     <entry><ind>0.48</ind><dep>0</dep></entry>
+     <entry><ind>0.65</ind><dep>-17</dep></entry>
+   </interpolation>
+   <center>
+     <x-m>24.92</x-m>
+     <y-m>0.07</y-m>
+     <z-m>5.49</z-m>
+   </center>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0.125</z>
+   </axis>
+ </animation>
+ 
+ <animation>
+   <type>rotate</type>
+   <object-name>Parachute2</object-name>
+   <property>sim/multiplay/generic/float[15]</property>
+   <interpolation>
+     <entry><ind>0.68</ind><dep>0</dep></entry>
+     <entry><ind>0.85</ind><dep>-14</dep></entry>
+   </interpolation>
+   <center>
+     <x-m>24.92</x-m>
+     <y-m>0.07</y-m>
+     <z-m>5.49</z-m>
+   </center>
+   <axis>
+     <x>0</x>
+     <y>0.10</y>
+     <z>1</z>
+   </axis>
+ </animation>
+ 
+ <animation>
+   <type>rotate</type>
+   <object-name>Parachute3</object-name>
+   <property>sim/multiplay/generic/float[15]</property>
+   <interpolation>
+     <entry><ind>0.88</ind><dep>0</dep></entry>
+     <entry><ind>1.0</ind><dep>-12</dep></entry>
+   </interpolation>
+   <center>
+     <x-m>24.92</x-m>
+     <y-m>0.07</y-m>
+     <z-m>5.49</z-m>
+   </center>
+   <axis>
+     <x>0</x>
+     <y>-0.05</y>
+     <z>-11</z>
+   </axis>
+ </animation>
+ 
+ <!-- Spinning -->
+ 
+ <animation>
+   <type>spin</type>
+   <object-name>Parachute1</object-name>
+   <property>sim/multiplay/generic/float[18]</property>
+   <factor>40</factor>
+   <center>
+     <x-m>24.92</x-m>
+     <y-m>0.07</y-m>
+     <z-m>5.49</z-m>
+   </center>
+   <axis>
+     <x>1</x>
+     <y>0.02</y>
+     <z>0.01</z>
+   </axis>
+ </animation>
+ 
+ <animation>
+   <type>spin</type>
+   <object-name>Parachute2</object-name>
+   <property>sim/multiplay/generic/float[18]</property>
+   <factor>-60</factor>
+   <center>
+     <x-m>24.92</x-m>
+     <y-m>0.07</y-m>
+     <z-m>5.49</z-m>
+   </center>
+   <axis>
+     <x>1</x>
+     <y>0.05</y>
+     <z>0.005</z>
+   </axis>
+ </animation>
+ 
+ <animation>
+   <type>spin</type>
+   <object-name>Parachute3</object-name>
+   <property>sim/multiplay/generic/float[18]</property>
+   <factor>50</factor>
+   <center>
+     <x-m>24.92</x-m>
+     <y-m>0.07</y-m>
+     <z-m>5.49</z-m>
+   </center>
+   <axis>
+     <x>1</x>
+     <y>0.01</y>
+     <z>0.03</z>
+   </axis>
+ </animation>
+ 
+ <!-- Fall off -->
+ 
+ <animation>
+   <type>translate</type>
+   <object-name>Parachute1</object-name>
+   <property>sim/multiplay/generic/float[18]</property>
+   <interpolation>
+     <entry>
+       <ind>1</ind>
+       <dep>0</dep>
+     </entry>
+     <entry>
+       <ind>0.0527</ind>
+       <dep>0</dep>
+     </entry>
+     <entry>
+       <ind>0.0302</ind>
+       <dep>190</dep>
+     </entry>
+   </interpolation>
+   <center>
+     <x-m>24.92</x-m>
+     <y-m>0.07</y-m>
+     <z-m>5.49</z-m>
+   </center>
+   <axis>
+     <x>1</x>
+     <y>0</y>
+     <z>-0.375</z>
+   </axis>
+ </animation>
+ 
+ <animation>
+   <type>translate</type>
+   <object-name>Parachute2</object-name>
+   <object-name>Parachute3</object-name>
+   <property>sim/multiplay/generic/float[18]</property>
+   <interpolation>
+     <entry>
+       <ind>1</ind>
+       <dep>0</dep>
+     </entry>
+     <entry>
+       <ind>0.0527</ind>
+       <dep>0</dep>
+     </entry>
+     <entry>
+       <ind>0.0302</ind>
+       <dep>190</dep>
+     </entry>
+   </interpolation>
+   <center>
+     <x-m>24.92</x-m>
+     <y-m>0.07</y-m>
+     <z-m>5.49</z-m>
+   </center>
+   <axis>
+     <x>1</x>
+     <y>0</y>
+     <z>-0.075</z>
+   </axis>
+ </animation>
+ 
+  <!-- End Parachutes -->
+ 
+<model>
+    <path>Aircraft/Tu-160-Blackjack/Models/Effects/smoke/surprise1.xml</path>
+    <offsets>
+      <x-m> -90000 </x-m>
+      <y-m>  10000 </y-m>
+      <z-m> -10780 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Tu-160-Blackjack/Models/Effects/smoke/surprise2.xml</path>
+    <offsets>
+      <x-m> -90000 </x-m>
+      <y-m>  10000 </y-m>
+      <z-m> -10780 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/Tu-160-Blackjack/Models/Effects/smoke/surprise3.xml</path>
+    <offsets>
+      <x-m> -90000 </x-m>
+      <y-m>  10000 </y-m>
+      <z-m> -10780 </z-m>
+    </offsets>
+  </model>
+  
+  <!-- Chokes -->
+  
+  <model>
+    <name>choke_nose</name>
+    <path>Aircraft/Tu-160-Blackjack/Models/Effects/ground/choke_nose.xml</path>
+    <condition>
+      <equals>
+	<property>sim/multiplay/generic/int[3]</property>
+	<value>1</value>
+      </equals>
+    </condition>
+    <offsets>
+      <x-m> 2.82 </x-m>
+      <y-m> 0.089 </y-m>
+      <z-m> 8.5 </z-m>
+    </offsets>
+    
+    </model>
+    
+    <model>
+      <name>choke_left</name>
+      <path>Aircraft/Tu-160-Blackjack/Models/Effects/ground/choke_left.xml</path>
+      <condition>
+	<equals>
+	  <property>sim/multiplay/generic/int[3]</property>
+	  <value>1</value>
+	</equals>
+      </condition>
+      <offsets>
+	<x-m> -3.35 </x-m>
+	<y-m>  5.90 </y-m>
+	<z-m>  8.65 </z-m>
+      </offsets>
+    </model>
+    
+    <model>
+      <name>choke_right</name>
+      <path>Aircraft/Tu-160-Blackjack/Models/Effects/ground/choke_right.xml</path>
+      <condition>
+	<equals>
+	  <property>sim/multiplay/generic/int[3]</property>
+	  <value>1</value>
+	</equals>
+      </condition>
+      <offsets>
+	<x-m> -3.35 </x-m>
+	<y-m> -5.90 </y-m>
+	<z-m>  8.65 </z-m>
+      </offsets>
+    </model>
+    
+    <!-- Exe needs update for 2016.2 model folder has changed-->
+    
+    <model>
+      <name>Ap1</name>
+      <path>Aircraft/Tu-160-Blackjack/Models/Effects/exe/apronworker1.xml</path>
+      <condition>
+	<equals>
+	  <property>sim/multiplay/generic/int[3]</property>
+	  <value>1</value>
+	</equals>
+      </condition>
+      <offsets>
+	<x-m> 0 </x-m>
+	<y-m> -5.90 </y-m>
+	<z-m>  0.2 </z-m>
+      </offsets>
+    </model>
+    
+    <model>
+      <name>Ap2</name>
+      <path>Aircraft/Tu-160-Blackjack/Models/Effects/exe/apronworker2.xml</path>
+      <condition>
+	<equals>
+	  <property>sim/multiplay/generic/int[3]</property>
+	  <value>1</value>
+	</equals>
+      </condition>
+      <offsets>
+	<x-m> 3 </x-m>
+	<y-m> -1.4 </y-m>
+	<z-m> 0.2 </z-m>
+      </offsets>
+    </model>
+    
+    <model>
+      <name>Ap3</name>
+      <path>Aircraft/Tu-160-Blackjack/Models/Effects/exe/apronworker3.xml</path>
+      <condition>
+	<equals>
+	  <property>sim/multiplay/generic/int[3]</property>
+	  <value>1</value>
+	</equals>
+      </condition>
+      <offsets>
+	<x-m> 0 </x-m>
+	<y-m> -15 </y-m>
+	<z-m> 0.2 </z-m>
+      </offsets>
+    </model>
+    
+    <model>
+      <name>Ap4</name>
+      <path>Aircraft/Tu-160-Blackjack/Models/Effects/exe/apronworker4.xml</path>
+      <condition>
+	<equals>
+	  <property>sim/multiplay/generic/int[3]</property>
+	  <value>1</value>
+	</equals>
+      </condition>
+      <offsets>
+	<x-m> 8 </x-m>
+	<y-m> 0 </y-m>
+	<z-m> 0.2 </z-m>
+      </offsets>
+    </model>
+    
+    <model>
+      <name>Ap5</name>
+      <path>Aircraft/Tu-160-Blackjack/Models/Effects/exe/apronworker5.xml</path>
+      <condition>
+	<equals>
+	  <property>sim/multiplay/generic/int[3]</property>
+	  <value>1</value>
+	</equals>
+      </condition>
+      <offsets>
+	<x-m> -22 </x-m>
+	<y-m> -7 </y-m>
+	<z-m> 0.2 </z-m>
+      </offsets>
+    </model>
+    
+    <model>
+      <name>Ap02</name>
+      <path>Aircraft/Tu-160-Blackjack/Models/Effects/exe/ap02.xml</path>
+      <offsets>
+	<x-m> -32 </x-m>
+	<y-m> 5 </y-m>
+	<z-m> 0.1 </z-m>
+      </offsets>
+    </model>
+    
+</PropertyList>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList include="Tu-160-Blackjack-base.xml">
+
+  <sim>
+
+    <description>Tu-160-Blackjack</description>
+    <author>Herbert Wagner</author>
+    <flight-model>yasim</flight-model>
+    <aero>Tu-160-Blackjack-yasim</aero>
+
+    <weight n="0">
+        	    <name>Crew</name>
+        	    <weight-lb type="double">600</weight-lb>
+        	    <max-lb type="double">1800</max-lb>
+        	    <min-lb type="double">600</min-lb>
+    </weight>
+    
+    <weight n="1">
+		    <name>Cargo</name>
+		    <weight-lb type="double">10000</weight-lb>
+		    <max-lb type="double">77500</max-lb>
+		    <min-lb type="double">0.0</min-lb>
+     </weight>
+		
+     <weight n="2">
+		    <name>Weappons-Front</name>
+		    <weight-lb type="double">1000.0</weight-lb>
+		    <max-lb type="double">38500</max-lb>
+		    <min-lb type="double">0.0</min-lb>
+     </weight>
+     
+     <weight n="3">
+		    <name>Weappons-Rear</name>
+		    <weight-lb type="double">1000.0</weight-lb>
+		    <max-lb type="double">38500</max-lb>
+		    <min-lb type="double">0.0</min-lb>
+     </weight>
+    
+    <rating>
+      <FDM type="int">     3 </FDM>
+      <systems type="int"> 3 </systems>
+      <cockpit type="int"> 4 </cockpit>
+      <model type="int">   5 </model>
+    </rating>
+    
+    <systems>
+      <path>Aircraft/Tu-160-Blackjack/Systems/systems.xml</path>
+      <autopilot>
+        <path>Aircraft/Tu-160-Blackjack/Nasal/Tu-160-Blackjack-autopilot.xml</path>
+      </autopilot>      
+    </systems>
+    
+    <import>
+      <path>Huds/Sets/controls.xml</path>
+      <x-offset>-100</x-offset>
+      <y-offset>70</y-offset>
+    </import> 
+
+  </sim>
+  
+  <instrumentation>
+    <radar>
+	  <range type="int" archive="y">20</range>
+	  <minimized type="bool" archive="y">false</minimized>
+    </radar>
+  </instrumentation>
+  
+  <systems>
+    <refuel>
+      <type>probe</type>
+      <serviceable type="bool">false</serviceable>
+      <report-contact type="bool">true</report-contact>
+      <max-fuel-transfer-lbs-min>6000</max-fuel-transfer-lbs-min>
+      <offset-x-m>-28.977</offset-x-m>
+      <offset-y-m>0.0</offset-y-m>
+      <offset-z-m>5.173</offset-z-m>
+    </refuel>
+  </systems>
+  
+  <nasal>
+    <aar>
+      <file>Aircraft/Generic/aar.nas</file>
+    </aar>
+  </nasal>  
+ 
+</PropertyList>
+

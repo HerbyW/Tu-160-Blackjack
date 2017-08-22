@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+  
+  <path>TU-160-landinglights.ac</path>
+  
+  <animation>
+    <type>select</type>
+    <object-name>landinglamp1</object-name>
+    <object-name>landinglamp2</object-name>    
+    <condition>
+	<greater-than>
+	  <property>gear/gear[0]/position-norm</property>
+	  <value>0.1</value>
+	</greater-than>
+    </condition>
+  </animation>
+  
+  <animation>
+    <type>select</type>
+    <object-name>spot_glass-l</object-name>
+    <object-name>spot_glass-r</object-name>    
+    <condition>
+      <and>
+	<greater-than>
+	  <property>gear/gear[0]/position-norm</property>
+	  <value>0.1</value>
+	</greater-than>
+	<property>sim/multiplay/generic/int[10]</property>	  
+      </and>
+    </condition>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>landinglamp1</object-name>
+    <object-name>landinglamp2</object-name>
+    <object-name>spot_glass-l</object-name>
+    <object-name>spot_glass-r</object-name>
+    <object-name>landing_plane-l</object-name>
+    <object-name>landing_plane-r</object-name>
+    <property>gear/gear[0]/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> -96 </dep></entry>
+      <entry><ind> 1 </ind><dep>   0 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> 0 </x-m>
+      <y-m>   0.0 </y-m>
+      <z-m>  2.0 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>select</type>
+    <object-name>landing_plane-l</object-name>
+    <object-name>landing_plane-r</object-name>    
+    <condition>
+      <and>
+	<not>
+	    <property>sim/rendering/rembrandt/enabled</property>
+	  </not>
+	<greater-than>
+	  <property>gear/gear[0]/position-norm</property>
+	  <value>0.98</value>
+	</greater-than>
+        <property>sim/multiplay/generic/int[10]</property>
+      </and>
+    </condition>
+  </animation>
+
+</PropertyList>
+  
