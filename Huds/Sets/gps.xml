@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-Copyright (C) Herbert Wagner Dec2014-2016
+Copyright (C) Herbert Wagner Nov2014-2016
 see Read-Me.txt for all copyrights in the base folder of this aircraft
 -->
 
@@ -136,7 +136,7 @@ see Read-Me.txt for all copyrights in the base folder of this aircraft
 	    <label>
 	      <width>2</width>
 	      <height>2</height>
-	      <x>80</x>
+	      <x>60</x>
 	      <y>-10</y>
 	      <format>TTW:%s</format>
 	      <halign>left</halign>
@@ -195,17 +195,17 @@ see Read-Me.txt for all copyrights in the base folder of this aircraft
 	      </input>
 	    </label>
 	    
-	    <!--Extra Information for IL-76MD by HerbyW -->
+	    <!--Extra Information for Space Shuttle by HerbyW -->
 	    
 	    <label>
 	      <width>2</width>
 	      <height>2</height>
 	      <y>-41</y>
-	      <format>GS:%7.5fkm/s</format>
+	      <format>GS:%6.2fkm/h</format>
 	      <halign>left</halign>
 	      <input>
 		<property>/instrumentation/gps/indicated-ground-speed-kt</property>
-		<factor>0.00051444444444444</factor>
+		<factor>1.852</factor>
 	      </input>
 	    </label>
 	    
@@ -224,32 +224,6 @@ see Read-Me.txt for all copyrights in the base folder of this aircraft
 	    <label>
 	      <width>2</width>
 	      <height>2</height>
-	      <x>460</x>
-	      <y>-15</y>
-	      <format>VerticalSpeed:%4d.....................meter/sec</format>
-	      <halign>left</halign>
-	      <input>
-		<property>/velocities/vertical-speed-fps</property>
-		<factor>0.3048</factor>
-	      </input>
-	    </label>
-	    
-	    <label>
-	      <width>2</width>
-	      <height>2</height>
-	      <x>460</x>
-	      <y>-5</y>
-	      <format>GroundElevation:%7.2f......................km</format>
-	      <halign>left</halign>
-	      <input>
-		<property>/position/altitude-ft</property>
-		<factor>0.0003048</factor>
-	      </input>
-	    </label>
-	    
-	    <label>
-	      <width>2</width>
-	      <height>2</height>
 	      <x>580</x>
 	      <y>-160</y>
 	      <format>%12.0f ft</format>
@@ -257,17 +231,19 @@ see Read-Me.txt for all copyrights in the base folder of this aircraft
 	      <input>
 		<property>/position/altitude-ft</property>
 	      </input>
-	    </label>     
+	    </label> 
+	    
+	    <!--Extra Information right top by HerbyW -->
 	    
 	    <label>
 	      <width>2</width>
 	      <height>2</height>
 	      <x>460</x>
-	      <y>15</y>
-	      <format>Flaps Indicator:%3.2f.....................Position</format>
+	      <y>55</y>
+	      <format>METAR:%4.1f.........................wind speed kt</format>
 	      <halign>left</halign>
 	      <input>
-		<property>/controls/flight/flaps</property>
+		<property>/environment/metar/base-wind-speed-kt</property>
 	      </input>
 	    </label>
 	    
@@ -275,11 +251,11 @@ see Read-Me.txt for all copyrights in the base folder of this aircraft
 	      <width>2</width>
 	      <height>2</height>
 	      <x>460</x>
-	      <y>5</y>
-	      <format>Landing Gear Indicator:%01d.........in(0) out(1)</format>
+	      <y>45</y>
+	      <format>METAR:%4.1f........................wind direction</format>
 	      <halign>left</halign>
 	      <input>
-		<property>/controls/gear/gear-down</property>
+		<property>/environment/metar/base-wind-dir-deg</property>
 	      </input>
 	    </label>
 	    
@@ -301,17 +277,18 @@ see Read-Me.txt for all copyrights in the base folder of this aircraft
 	      <input>
 		<property>/environment/metar/station-id</property>
 	      </input>
-	    </label>
+	    </label>    
 	    
 	    <label>
 	      <width>2</width>
 	      <height>2</height>
 	      <x>460</x>
-	      <y>45</y>
-	      <format>METAR:%4.1f........................wind direction</format>
+	      <y>15</y>
+	      <format>GroundElevation:%7.2f......................km</format>
 	      <halign>left</halign>
 	      <input>
-		<property>/environment/metar/base-wind-dir-deg</property>
+		<property>/position/altitude-ft</property>
+		<factor>0.0003048</factor>
 	      </input>
 	    </label>
 	    
@@ -319,11 +296,12 @@ see Read-Me.txt for all copyrights in the base folder of this aircraft
 	      <width>2</width>
 	      <height>2</height>
 	      <x>460</x>
-	      <y>55</y>
-	      <format>METAR:%4.1f.........................wind speed kt</format>
+	      <y>5</y>
+	      <format>VerticalSpeed:%4d.....................meter/sec</format>
 	      <halign>left</halign>
 	      <input>
-		<property>/environment/metar/base-wind-speed-kt</property>
+		<property>/velocities/vertical-speed-fps</property>
+		<factor>0.3048</factor>
 	      </input>
 	    </label>
 	    
@@ -331,7 +309,7 @@ see Read-Me.txt for all copyrights in the base folder of this aircraft
 	      <width>2</width>
 	      <height>2</height>
 	      <x>460</x>
-	      <y>-35</y>
+	      <y>-05</y>
 	      <format>Cargo Door:%01d.................closed(0) open(1)</format>
 	      <halign>left</halign>
 	      <input>
@@ -343,21 +321,21 @@ see Read-Me.txt for all copyrights in the base folder of this aircraft
 	      <width>2</width>
 	      <height>2</height>
 	      <x>460</x>
-	      <y>-45</y>
+	      <y>-15</y>
 	      <format>Cargo:%6.1f..................................LBS</format>
 	      <halign>left</halign>
 	      <input>
 		<property>/sim/weight[1]/weight-lb</property>
 	      </input>
-	    </label>	    
+	    </label>
 	    
-	    <!--Extra Information left by HerbyW -->        
+	<!--Extra Information left by HerbyW -->
 	    
 	    <label>
 	      <width>2</width>
 	      <height>2</height>
 	      <x>-90</x>
-	      <y>-300</y>
+	      <y>-280</y>
 	      <format>Pitch-Trim:................................%6.4f</format>
 	      <halign>left</halign>
 	      <input>
@@ -369,11 +347,35 @@ see Read-Me.txt for all copyrights in the base folder of this aircraft
 	      <width>2</width>
 	      <height>2</height>
 	      <x>-90</x>
-	      <y>-310</y>
+	      <y>-290</y>
+	      <format>Propeller Pitch Control:...............%6.2f</format>
+	      <halign>left</halign>
+	      <input>
+		<property>/controls/engines/engine/propeller-pitch</property>
+	      </input>
+	    </label>
+	    
+	    <label>
+	      <width>2</width>
+	      <height>2</height>
+	      <x>-90</x>
+	      <y>-300</y>
 	      <format>Fuel-Flow-GPH:.......................%8.2f</format>
 	      <halign>left</halign>
 	      <input>
 		<property>/engines/engine/fuel-flow-gph</property>
+	      </input>
+	    </label>
+	    
+	    <label>
+	      <width>2</width>
+	      <height>2</height>
+	      <x>-90</x>
+	      <y>-310</y>
+	      <format>RPM:.........................................%6.2f</format>
+	      <halign>left</halign>
+	      <input>
+		<property>/engines/engine/rpm</property>
 	      </input>
 	    </label>
 	    
