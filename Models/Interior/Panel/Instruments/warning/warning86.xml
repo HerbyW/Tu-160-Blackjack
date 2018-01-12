@@ -7,15 +7,8 @@
     #############################################################################	  
     -->
 <!--
-
-    ###################################################################################
-    Antonov-Aircrafts and SpaceShuttle :: Herbert Wagner November2014-March2015
-    Development is ongoing, see latest version: www.github.com/HerbyW
-    This file is licenced under the terms of the GNU General Public Licence V3 or later
-    
-    Firefly: 3D model improvment: ruder, speedbreak, ailerions, all gears and doors
-    Eagel: Liveries
-    ###################################################################################
+Copyright (C) Herbert Wagner Nov2016
+see Read-Me.txt for all copyrights in the base folder of this aircraft
 -->
 <!-- indicators on captain panel
 3D instrument for Tu-154 -->
@@ -48,11 +41,17 @@
   <type>material</type>
   <object-name>text</object-name>
    <condition>
-     <greater-than>
+    <and>
+      <greater-than>
 	<property>controls/gear/brake-parking</property>
 	<value>0</value>
-     </greater-than>
-    </condition>  
+      </greater-than>
+      <greater-than>
+	<property>controls/switches/gauge-light</property>
+	<value>0</value>
+      </greater-than>
+    </and>
+  </condition>
   <emission>
     <red>1.0</red>
     <green>1.0</green>

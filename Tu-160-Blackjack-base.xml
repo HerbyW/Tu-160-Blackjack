@@ -87,7 +87,7 @@
   <sim include="Systems/views.xml">
     <description>Tu-160 heavy intercontinental bomber aircraft (YASim fdm)</description>
     <author>Herbert Wagner</author>
-    <aircraft-version>3.0.4</aircraft-version>
+    <aircraft-version>3.0.5</aircraft-version>
     <status>development</status>
     <aero>Tu-160-Blackjack-yasim</aero>
     <fuel-fraction>0.8</fuel-fraction>
@@ -103,7 +103,7 @@
     
     <model>
       <path>Aircraft/Tu-160-Blackjack/Models/Tu-160-Blackjack.xml</path>
-      <tu160><version type="string">3.0.4</version></tu160>
+      <tu160><version type="string">3.0.5</version></tu160>
       <door-positions>
 	<flares><position-norm type="int">0</position-norm></flares>
         <refil><position-norm type="double">0</position-norm></refil>
@@ -263,7 +263,7 @@
 	</key>
 	
 	
-<text>Welcome to the heavy intercontinental bomber aircraft Tu-160 White Swan = Version 3.0.4
+<text>Welcome to the heavy intercontinental bomber aircraft Tu-160 White Swan = Version 3.0.5
   
   Autostart: press s and make the 2 additional settings!
   

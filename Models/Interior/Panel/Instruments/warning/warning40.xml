@@ -7,25 +7,8 @@
     #############################################################################	  
     -->
 <!--
-    #######################################################################################################
-    Arcraft development for Flightgear by Herbert Wagner 2014-2015                            Model: MI-6PS
-    Antonov AN-12BK, AN-22A, AN-225-Mrija,
-    Tuplev Tu-95MR,
-    Mil Mi-6PS
-    Yak 58, Yak-53,
-    Berijev Be-200Altair
-    SpaceShuttle
-    Development is ongoing, see latest versions: www.github.com/HerbyW
-    
-    This file is licenced under the terms mentioned in the LICENCE.txt file.
-    Mi6dev was initially started by Moritz Röhrich (Blender3D) 2010-2012 as CC 3.0 BY NC SA.
-    The 3D-model still holds the CC 3.0 BY NC SA license, everything else is GNU GPL v3 License.
-    
-    This version is now going forward and will give you a full automatic flight control-system,
-    lots of animations, instrumentation and full Multiplayer support for Parachuters and Elephant transport.
-    Liveries, Fire fighting and SAR rescue is in preparation.
-    Removing this header is probited.    
-    ########################################################################################################
+Copyright (C) Herbert Wagner Nov2016
+see Read-Me.txt for all copyrights in the base folder of this aircraft
 -->
 <!-- indicators on captain panel
 3D instrument for Tu-154 -->
@@ -69,11 +52,17 @@
   <type>material</type>
   <object-name>text</object-name>
    <condition>
-     <equals>     
-       <property>controls/flight/spoilers</property>
-       <value>0</value>
-     </equals>
-    </condition>  
+      <and>
+	<equals>     
+	  <property>controls/flight/spoilers</property>
+	  <value>0</value>
+	</equals>
+	<greater-than>
+	  <property>controls/switches/gauge-light</property>
+	  <value>0</value>
+	</greater-than>
+      </and>
+    </condition> 
   <emission>
     <red>1.0</red>
     <green>1.0</green>
@@ -96,11 +85,17 @@
   <type>material</type>
   <object-name>text.001</object-name>
    <condition>
-     <equals>     
-       <property>controls/flight/spoilers</property>
-       <value>0.25</value>
-     </equals>
-    </condition>  
+      <and>
+	<equals>     
+	  <property>controls/flight/spoilers</property>
+	  <value>0.25</value>
+	</equals>
+	<greater-than>
+	  <property>controls/switches/gauge-light</property>
+	  <value>0</value>
+	</greater-than>
+      </and>
+    </condition>   
   <emission>
     <red>1.0</red>
     <green>1.0</green>
@@ -123,11 +118,17 @@
   <type>material</type>
   <object-name>text.002</object-name>
    <condition>
-     <equals>     
-       <property>controls/flight/spoilers</property>
-       <value>0.5</value>
-     </equals>
-    </condition>  
+      <and>
+	<equals>     
+	  <property>controls/flight/spoilers</property>
+	  <value>0.5</value>
+	</equals>
+	<greater-than>
+	  <property>controls/switches/gauge-light</property>
+	  <value>0</value>
+	</greater-than>
+      </and>
+    </condition>   
   <emission>
     <red>1.0</red>
     <green>1.0</green>
@@ -150,11 +151,17 @@
   <type>material</type>
   <object-name>text.003</object-name>
    <condition>
-     <equals>     
-       <property>controls/flight/spoilers</property>
-       <value>0.75</value>
-     </equals>
-    </condition>  
+      <and>
+	<equals>     
+	  <property>controls/flight/spoilers</property>
+	  <value>0.75</value>
+	</equals>
+	<greater-than>
+	  <property>controls/switches/gauge-light</property>
+	  <value>0</value>
+	</greater-than>
+      </and>
+    </condition>   
   <emission>
     <red>1.0</red>
     <green>1.0</green>
@@ -177,10 +184,16 @@
   <type>material</type>
   <object-name>text.004</object-name>
    <condition>
-     <equals>     
-       <property>controls/flight/spoilers</property>
-       <value>1</value>
-     </equals>
+      <and>
+	<equals>     
+	  <property>controls/flight/spoilers</property>
+	  <value>1</value>
+	</equals>
+	<greater-than>
+	  <property>controls/switches/gauge-light</property>
+	  <value>0</value>
+	</greater-than>
+      </and>
     </condition>  
   <emission>
     <red>1.0</red>

@@ -24,6 +24,20 @@ var fdmready = maketimer(3, func {
 
 fdmready.start();
 
+#########################################################################
+
+setlistener("controls/switches/gauge-light", func
+
+ { 
+   if((getprop("controls/electric/battery-switch") == 0) or (getprop("controls/electric/battery-switch[1]") == 0))
+    {
+      setprop("sim/messages/copilot", "Battery is off");
+      setprop("controls/switches/gauge-light", 0);
+    }
+ }
+);
+
+
 #########################################################################################################
 # sweeping wings    0=20 
 #                0.33=35
